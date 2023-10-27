@@ -84,6 +84,7 @@
                           <option {{ ($outcome->recommended_plan =="Hysterectomy") ? 'selected' : ''}}>Hysterectomy</option>
                           <option {{ ($outcome->recommended_plan =="Trachelectomy") ? 'selected' : ''}}>Trachelectomy</option>
                           <option {{ ($outcome->recommended_plan =="Discharged") ? 'selected' : ''}}>Discharged Normal</option>
+                          <option {{ ($outcome->recommended_plan =="Routine Screening") ? 'selected' : ''}}>Routine Screening</option>                                                  
                           <option {{ ($outcome->recommended_plan =="Follow-up") ? 'selected' : ''}}>Continued Follow-up</option>
               </select>
             </div>

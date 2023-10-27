@@ -81,6 +81,7 @@
                           <option value="{{ 'Hysterectomy' }}">{{ _('Hysterectomy') }}</option>
                           <option value="{{ 'Trachelectomy' }}">{{ _('Trachelectomy') }}</option>
                           <option value="{{ 'Discharged' }}">{{ _('Discharged Normal') }}</option>
+                          <option value="{{ 'Routine Screening'}}">{{ _('Routine Screening')}}</option>
                           <option value="{{ 'Follow-up' }}">{{ _('Continued Follow-up') }}</option>
               </select>
             </div>
