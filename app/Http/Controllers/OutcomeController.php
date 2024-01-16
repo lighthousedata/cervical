@@ -29,6 +29,7 @@ class OutcomeController extends Controller
 
     $rules =[
       'clientnumber' =>'required | exists:referrals,clientnumber', //check if client has referral details
+      'assessment_outcome' =>'',
       'followup_outcome' =>'',
       'sample_type' =>'',
       'histology_result' =>'',
@@ -50,6 +51,7 @@ class OutcomeController extends Controller
 
     $outcome = new Outcome();
     $outcome->clientnumber = $request->clientnumber;
+    $outcome->assessment_outcome=$request->assessment_outcome;
     $outcome->followup_outcome = $request->followup_outcome;
     $outcome->sample_type = $request->sample_type;
     $outcome->histology_result = $request->histology_result;

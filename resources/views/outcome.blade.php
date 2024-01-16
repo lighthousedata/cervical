@@ -28,8 +28,27 @@
             <div class=form-group style="font-size: 15px; margin-left: 10%">
               <label class="col-form-label">{{ __('Client Number') }}</label>
               <input id="clientnumber" class="text-box" name="clientnumber" style="width: 20%; margin-left: 5%" value="{{ old('clientnumber') }}">
-              <label class="col-form-label" style="margin-left: 5%">{{ __('Followup Outcome') }}</label>
-              <select class="text-box" name="followup_outcome" style="width: 20%; margin-left: 5%; font-size: 15px" value="{{ old('followup_outcome') }}">
+              <label class="col-form-label" style="margin-left: 11%">{{ __('Assessment Outcome') }}</label>
+              <select class="text-box" name="assessment_outcome" style="width: 20%; margin-left:1.5%" value="{{ old('assessment_outcome') }}">
+              <option value="">-- Assessment Outcome --</option>
+              <option value="{{ 'Chronic Cervitis/STI' }}">{{ _('Chronic Cervitis/STI') }}</option>
+              <option value="{{ 'VIA Negative' }}">{{ _('VIA Negative') }}</option>
+              <option value="{{ 'VIA Positive' }}">{{ _('VIA Positive') }}</option>
+              <option value="{{ 'PAP Smear Normal' }}">{{ _('PAP Smear Normal') }}</option>
+              <option value="{{ 'PAP Smear Abnormal' }}">{{ _('PAP Smear Abnormal') }}</option>
+              <option value="{{ 'No Visible Lesion' }}">{{ _('No Visible Lesion') }}</option>
+              <option value="{{ 'CA Suspect' }}">{{ _('Suspected Cancer') }}</option>
+              </select>              
+            </div>
+            <div class=form-group>
+              <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Sample Type') }}</label>
+              <select class="text-box" name="sample_type" style="width: 18%; margin-left: 5.6%; font-size: 15px" value="{{ old('sample_type') }}">
+                          <option value="">-- Sample Type --</option>
+                          <option value="{{ 'Punch Biopsy' }}">{{ _('Punch Biopsy Sample') }}</option>
+                          <option value="{{ 'LLETZ' }}">{{ _('LLETZ Sample') }}</option>
+              </select>
+              <label class="col-form-label" style="margin-left: 10%">{{ __('Followup Outcome') }}</label>
+              <select class="text-box" name="followup_outcome" style="width: 18%; margin-left: 2.6%; font-size: 15px" value="{{ old('followup_outcome') }}">
                           <option value="">-- Followup Outcome --</option>
                           <option value="{{ 'Consultation' }}">{{ _('Booked for Consultation') }}</option>
                           <option value="{{ 'Biopsy Booked' }}">{{ _('Biopsy Booked') }}</option>
@@ -44,17 +63,11 @@
                           <option value="{{ 'Not Reachable' }}">{{ _('Not Reachable') }}</option>
                           <option value="{{ 'No Follow-up' }}">{{ _('No Follow-up') }}</option>
                           <option value="{{ 'Treatment Done' }}">{{ _('Treatment Done') }}</option>
-              </select>
+              </select>              
             </div>
             <div class=form-group>
-              <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Sample Type') }}</label>
-              <select class="text-box" name="sample_type" style="width: 18%; margin-left: 5.6%; font-size: 15px" value="{{ old('sample_type') }}">
-                          <option value="">-- Sample Type --</option>
-                          <option value="{{ 'Punch Biopsy' }}">{{ _('Punch Biopsy Sample') }}</option>
-                          <option value="{{ 'LLETZ' }}">{{ _('LLETZ Sample') }}</option>
-              </select>
-              <label class="col-form-label text-md-right" style="margin-left: 4.5%">{{ __('Histology Result') }}</label>
-              <select class="text-box" name="histology_result" style="width: 18%; margin-left: 5.8%; font-size: 15px" value="{{ old('histology_result') }}">
+            <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Histology Result') }}</label>
+              <select class="text-box" name="histology_result" style="width: 18%; margin-left: 3.8%; font-size: 15px" value="{{ old('histology_result') }}">
                           <option value="">-- Histology Result --</option>
                           <option value="{{ 'Normal' }}">{{ _('Normal') }}</option>
                           <option value="{{ 'CIN I' }}">{{ _('CIN I') }}</option>
@@ -63,10 +76,8 @@
                           <option value="{{ 'Carcinoma' }}">{{ _('Carcinoma in Situ') }}</option>
                           <option value="{{ 'Invasive Cancer' }}">{{ _('Invasive Cancer') }}</option>
               </select>
-            </div>
-            <div class=form-group>
               <label class="col-form-label" style="margin-left: 10%">{{ __('Treatment Provided') }}</label>
-              <select class="text-box" name="treatment_provided" style="width: 18%; margin-left: 1.5%; font-size: 15px" value="{{ old('treatment_provided') }}">
+              <select class="text-box" name="treatment_provided" style="width: 18%; margin-left: 1.8%; font-size: 15px" value="{{ old('treatment_provided') }}">
                           <option value="">-- Treatment Provided --</option>
                           <option value="{{ 'LLETZ/LEEP' }}">{{ _('LLETZ/LEEP') }}</option>
                           <option value="{{ 'Hysterectomy' }}">{{ _('Hysterectomy') }}</option>
@@ -74,9 +85,13 @@
                           <option value="{{ 'Palliative Care' }}">{{ _('On Palliative Care') }}</option>
                           <option value="{{ 'Other Gynae' }}">{{ _('Treated for Other Gynae') }}</option>
                           <option value="{{ 'Thermotherapy' }}">{{ _('Thermotherapy') }}</option>
-              </select>
-              <label class="col-form-label" style="margin-left: 4.5%">{{ __('Recommended Plan') }}</label>
-              <select class="text-box" name="recommended_plan" style="width: 18%; margin-left: 3.8%; font-size: 15px" value="{{ old('recommended_plan') }}">
+              </select>              
+            </div>
+            <div class=form-group>
+              <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Feedback') }}</label>
+              <input id="feedback" class="text-box" name="feedback" style="width:18%; margin-left: 7.4%" value="{{ old('feedback') }}">
+              <label class="col-form-label" style="margin-left: 10.5%">{{ __('Recommended Plan') }}</label>
+              <select class="text-box" name="recommended_plan" style="width: 18%; margin-left: 2%; font-size: 15px" value="{{ old('recommended_plan') }}">
                           <option value="">-- Recommended Plan --</option>
                           <option value="{{ 'Hysterectomy' }}">{{ _('Hysterectomy') }}</option>
                           <option value="{{ 'Trachelectomy' }}">{{ _('Trachelectomy') }}</option>
@@ -84,10 +99,6 @@
                           <option value="{{ 'Routine Screening'}}">{{ _('Routine Screening')}}</option> 
                           <option value="{{ 'Follow-up' }}">{{ _('Continued Follow-up') }}</option>
               </select>
-            </div>
-            <div class=form-group>
-              <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Feedback') }}</label>
-              <input id="feedback" class="text-box" name="feedback" style="width:18%; margin-left: 7.4%" value="{{ old('feedback') }}">
             </div>
             </div>
             <hr>

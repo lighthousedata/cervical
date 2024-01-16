@@ -90,18 +90,7 @@
               <option value="{{ 'CA Suspect' }}">{{ _('Suspect Cancer') }}</option>
               <option value="{{ 'No Treatment' }}">{{ _('No Treatment') }}</option>
               <option value="{{ 'Other Gynae' }}">{{ _('Other Gynae') }}</option>
-              </select>
-              <label class="col-form-label" style="margin-left: 11%">{{ __('Assessment Outcome') }}</label>
-              <select class="text-box" name="assessment_outcome" style="width: 17%; margin-left:1.5%" value="{{ old('assessment_outcome') }}">
-              <option value="">-- Assessment Outcome --</option>
-              <option value="{{ 'Chronic Cervitis/STI' }}">{{ _('Chronic Cervitis/STI') }}</option>
-              <option value="{{ 'VIA Negative' }}">{{ _('VIA Negative') }}</option>
-              <option value="{{ 'VIA Positive' }}">{{ _('VIA Positive') }}</option>
-              <option value="{{ 'PAP Smear Normal' }}">{{ _('PAP Smear Normal') }}</option>
-              <option value="{{ 'PAP Smear Abnormal' }}">{{ _('PAP Smear Abnormal') }}</option>
-              <option value="{{ 'No Visible Lesion' }}">{{ _('No Visible Lesion') }}</option>
-              <option value="{{ 'CA Suspect' }}">{{ _('Suspected Cancer') }}</option>
-              </select>
+              </select>              
             </div>
             <hr>
               <div>

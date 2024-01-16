@@ -34,8 +34,7 @@ class ReferralController extends Controller
       'age_group'=>'required',
       'screening_type'=>'required',
       'hiv_status'=>'required',
-      'referral_reason'=>'required',
-      'assessment_outcome'=>'required',
+      'referral_reason'=>'required',     
     ]);
     $referral= new Referral();
     $referral->referral_date=$request->referral_date;
@@ -47,8 +46,7 @@ class ReferralController extends Controller
     $referral->age_group=$request->age_group;
     $referral->screening_type=$request->screening_type;
     $referral->hiv_status=$request->hiv_status;
-    $referral->referral_reason=$request->referral_reason;
-    $referral->assessment_outcome=$request->assessment_outcome;
+    $referral->referral_reason=$request->referral_reason;    
     $referral->save();
 
     return redirect()->route('referral')->with('success','Referral Client Successfully Entered !');
