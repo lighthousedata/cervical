@@ -89,15 +89,7 @@ class OutcomeController extends Controller
 
       return view ('searchoutcome')->withDetails($outcome);
   }
-
-  //public function client(Request $request)
-  //{
-    //$find = Input::get('query');
-    //$referraldetails = Referral::where('clientnumber', 'LIKE', $find)->orwhere('firstname', 'LIKE', $find)->get()->take(5);
-
-    //return view ('searchclient')->withDetails($referraldetails);
-  //}
-
+  
   public function edit($id)
   {
     $outcome = Outcome::find($id);

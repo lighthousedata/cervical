@@ -319,8 +319,13 @@ return [
             'icon'        => 'far fa-fw fa-file',
         ],
         [
-            'text'        => 'Find Clients',
+            'text'        => 'Search a Client',
             'url'         => 'searchclient',
+            'icon'        => 'far fa-fw fa-file',
+        ],
+        [
+            'text'        => 'View Referred Clients',
+            'url'         => 'filterclient',
             'icon'        => 'far fa-fw fa-file',
         ],
         ['header' => 'account_settings'],
