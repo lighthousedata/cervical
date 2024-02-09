@@ -123,9 +123,12 @@
                 legend: {
                     display: true,
                 },
+                
               },
             },
+          
         });
     </script>
+
 
 @endsection

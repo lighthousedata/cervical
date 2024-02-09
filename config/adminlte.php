@@ -301,32 +301,32 @@ return [
         [
             'text'        => 'Enter Clients',
             'url'         => 'newclient',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'far fa-fw fa fa-file-alt',
         ],
         [
             'text'        => 'Enter Referrals',
             'url'         => 'referral',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'far fa-fw fa fa-file-alt',
         ],
         [
             'text'        => 'Enter Referral Outcomes',
             'url'         => 'referraloutcome',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'far fa-fw fa fa-file-alt',
         ],
         [
             'text'        => 'Update Outcomes',
             'url'         => 'searchoutcome',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-edit',
         ],
         [
             'text'        => 'Search a Client',
             'url'         => 'searchclient',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-search',
         ],
         [
             'text'        => 'View Referred Clients',
             'url'         => 'filterclient',
-            'icon'        => 'far fa-fw fa-file',
+            'icon'        => 'fas fa-clipboard-list',
         ],
         ['header' => 'account_settings'],
         [

@@ -89,7 +89,7 @@ class OutcomeController extends Controller
 
       return view ('searchoutcome')->withDetails($outcome);
   }
-  
+
   public function edit($id)
   {
     $outcome = Outcome::find($id);

@@ -35,7 +35,7 @@ class ReferralController extends Controller
       'age_group'=>'required',
       'screening_type'=>'required',
       'hiv_status'=>'required',
-      'referral_reason'=>'required',     
+      'referral_reason'=>'required',
     ]);
     $referral= new Referral();
     $referral->referral_date=$request->referral_date;
@@ -47,7 +47,7 @@ class ReferralController extends Controller
     $referral->age_group=$request->age_group;
     $referral->screening_type=$request->screening_type;
     $referral->hiv_status=$request->hiv_status;
-    $referral->referral_reason=$request->referral_reason;    
+    $referral->referral_reason=$request->referral_reason;
     $referral->save();
 
     return redirect()->route('referral')->with('success','Referral Client Successfully Entered !');
@@ -58,8 +58,10 @@ public function filterclients(Request $request)
       $startdate = $request->startdate;
       $enddate = $request->enddate;
 
-      $filter = Referral::whereBetween('referral_date', [$startdate, $enddate])->orderBy('referral_date', 'DESC')->get();                          
+      $filter = Referral::whereBetween('referral_date', [$startdate, $enddate])->orderBy('referral_date', 'DESC')
+                          ->Join('outcomes', 'outcomes.clientnumber', 'referrals.clientnumber')->get();
 
       return view ('searchreferredclient')->withDetails($filter);
   }
-} 
+
+}
