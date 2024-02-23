@@ -154,11 +154,11 @@ class HomeController extends Controller
       $fulloutcome_sep = Referral::whereBetween('referral_date', ['2024-09-01', '2024-09-30'])
                         ->join('outcomes', 'outcomes.clientnumber', 'referrals.clientnumber')
                         ->where('histology_result', '<>', Null)->count();
-      $initial = Referral::whereBetween('referral_date', ['2023-10-01', '2024-09-30'])
+      $initial = Referral::whereBetween('referral_date', ['2020-10-01', '2024-09-30'])
                         ->where('screening_type', 'Initial Screening')->count();
-      $subsequent = Referral::whereBetween('referral_date', ['2023-10-01', '2024-09-30'])
+      $subsequent = Referral::whereBetween('referral_date', ['2020-10-01', '2024-09-30'])
                         ->where('screening_type', 'Subsequent')->count();
-      $post_tx = Referral::whereBetween('referral_date', ['2023-10-01', '2024-09-30'])
+      $post_tx = Referral::whereBetween('referral_date', ['2020-10-01', '2024-09-30'])
                         ->where('screening_type', 'Post Treatment')->count();
 
         return view('home', compact('oct', 'nooutcome_oct', 'partialoutcome_oct', 'fulloutcome_oct', 'nov', 'nooutcome_nov', 'partialoutcome_nov', 'fulloutcome_nov', 'dec', 'nooutcome_dec', 'partialoutcome_dec', 'fulloutcome_dec',

@@ -3,7 +3,7 @@
 @section('title', 'Cervical Cancer | Search Client')
 
 @section('content_header')
-<h1></h1>
+<div></div>
 @stop
 
 @section('content')

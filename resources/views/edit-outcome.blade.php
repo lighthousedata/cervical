@@ -60,6 +60,8 @@
                           <option {{ ($outcome->followup_outcome == "Not Reachable") ? 'selected' : ''}}>Not Reachable</option>
                           <option {{ ($outcome->followup_outcome == "No Follow-up") ? 'selected' : ''}}>No Follow-up</option>
                           <option {{ ($outcome->followup_outcome == "Treatment Done") ? 'selected' : ''}}>Treatment Done</option>
+                          <option {{ ($outcome->followup_outcome == "Transfer Out") ? 'selected' : ''}}>Transfer Out</option>
+                          <option {{ ($outcome->followup_outcome == "Died") ? 'selected' : ''}}>Died</option>
               </select>
               <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Sample Type') }}</label>
               <select type="text" class="text-box" name="sample_type" style="width: 18%; margin-left: 5.6%; font-size: 12px" value="{{ $outcome->sample_type}}">
@@ -69,6 +71,16 @@
               </select>              
             </div>
             <div class=form-group>
+            <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Histology Result') }}</label>
+              <select type="text" class="text-box" name="histology_result" style="width: 18%; margin-left: 4%; font-size: 12px" value="{{ $outcome->histology_result}}">
+                          <option value="">-- Histology Result --</option>
+                          <option {{ ($outcome->histology_result =="Normal") ? 'selected' : '' }}>Normal</option>
+                          <option {{ ($outcome->histology_result =="CIN I") ? 'selected' : '' }}>CIN I</option>
+                          <option {{ ($outcome->histology_result =="CIN II") ? 'selected' : '' }}>CIN II</option>
+                          <option {{ ($outcome->histology_result =="CIN III") ? 'selected' : '' }}>CIN III</option>
+                          <option {{ ($outcome->histology_result =="Carcinoma") ? 'selected' : ''}}>Carcinoma in Situ</option>
+                          <option {{ ($outcome->histology_result =="Invasive Cancer") ? 'selected' : '' }}>Invasive Cancer</option>
+              </select>
               <label class="col-form-label" style="margin-left: 10%">{{ __('Treatment Provided') }}</label>
               <select type="text" class="text-box" name="treatment_provided" style="width: 18%; margin-left: 2%; font-size: 12px" value="{{ $outcome->treatment_provided}}">
                           <option value="">-- Treatment Provided --</option>
@@ -78,17 +90,7 @@
                           <option {{ ($outcome->treatment_provided =="Palliative Care") ? 'selected' : '' }}>On Palliative Care</option>
                           <option {{ ($outcome->treatment_provided =="Other Gynae") ? 'selected' : '' }}>Treated for Other Gynae</option>
                           <option {{ ($outcome->treatment_provided =="Thermotherapy") ? 'selected' : '' }}>Thermotherapy</option>
-              </select>
-              <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Histology Result') }}</label>
-              <select type="text" class="text-box" name="histology_result" style="width: 18%; margin-left: 4%; font-size: 12px" value="{{ $outcome->histology_result}}">
-                          <option value="">-- Histology Result --</option>
-                          <option {{ ($outcome->histology_result =="Normal") ? 'selected' : '' }}>Normal</option>
-                          <option {{ ($outcome->histology_result =="CIN I") ? 'selected' : '' }}>CIN I</option>
-                          <option {{ ($outcome->histology_result =="CIN II") ? 'selected' : '' }}>CIN II</option>
-                          <option {{ ($outcome->histology_result =="CIN III") ? 'selected' : '' }}>CIN III</option>
-                          <option {{ ($outcome->histology_result =="Carcinoma") ? 'selected' : ''}}>Carcinoma in Situ</option>
-                          <option {{ ($outcome->histology_result =="Invasive Cancer") ? 'selected' : '' }}>Invasive Cancer</option>
-              </select>              
+              </select>                            
             </div>
             <div class=form-group>
             <label class="col-form-label" style="margin-left: 10%">{{ __('Recommended Plan') }}</label>
@@ -98,7 +100,7 @@
                           <option {{ ($outcome->recommended_plan =="Trachelectomy") ? 'selected' : ''}}>Trachelectomy</option>
                           <option {{ ($outcome->recommended_plan =="Discharged") ? 'selected' : ''}}>Discharged Normal</option>
                           <option {{ ($outcome->recommended_plan =="Routine Screening") ? 'selected' : ''}}>Routine Screening</option>                                                  
-                          <option {{ ($outcome->recommended_plan =="Follow-up") ? 'selected' : ''}}>Continued Follow-up</option>
+                          <option {{ ($outcome->recommended_plan =="Follow-up") ? 'selected' : ''}}>Continue Follow-up</option>
               </select>
               <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Feedback') }}</label>
               <input id="feedback" class="text-box" name="feedback" style="width:18%; margin-left: 7.4%" value="{{$outcome->feedback}}">
@@ -108,10 +110,10 @@
               <div>
               <div class="form-group row mb-0">
                 <div class="col-md-8 offset-md-2">
-                    <button type="submit" class="btn btn-success float-left" style="font-size:20px; width:12%">
+                    <button type="submit" class="btn btn-success float-right" style="font-size:20px; width:12%">
                         {{ __('Save') }}
                     </button>
-                    <button type="button" class="btn btn-primary float-right" onclick="location.href='{{ route('searchoutcome') }}'" style="font-size:20px; width:12%">
+                    <button type="button" class="btn btn-primary float-left" onclick="location.href='{{ route('searchoutcome') }}'" style="font-size:20px; width:12%">
                         {{ __('Back') }}
                     </button>
               </div>

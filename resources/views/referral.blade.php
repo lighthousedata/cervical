@@ -96,11 +96,11 @@
               <div>
               <div class="form-group row mb-2">
                 <div class="col-md-8 offset-md-2">
-                    <button type="submit" class="btn btn-success float-left" style="font-size:20px; width:12%">
-                        {{ __('Save') }}
-                    </button>
-                    <button type="button" class="btn btn-primary float-right" onclick="location.href='{{ route('home') }}'" style="font-size:20px; width:12%">
+                    <button type="button" class="btn btn-primary float-left" onclick="location.href='{{ route('home') }}'" style="font-size:20px; width:12%">
                         {{ __('Back') }}
+                    </button>
+                    <button type="submit" class="btn btn-success float-right" style="font-size:20px; width:12%">
+                        {{ __('Save') }}
                     </button>
               </div>
             </div>

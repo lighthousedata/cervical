@@ -63,6 +63,8 @@
                           <option value="{{ 'Not Reachable' }}">{{ _('Not Reachable') }}</option>
                           <option value="{{ 'No Follow-up' }}">{{ _('No Follow-up') }}</option>
                           <option value="{{ 'Treatment Done' }}">{{ _('Treatment Done') }}</option>
+                          <option value="{{ 'Transfer Out' }}">{{ _('Transfer Out') }}</option>
+                          <option value="{{ 'Died' }}">{{ _('Died') }}</option>
               </select>              
             </div>
             <div class=form-group>
@@ -97,7 +99,7 @@
                           <option value="{{ 'Trachelectomy' }}">{{ _('Trachelectomy') }}</option>
                           <option value="{{ 'Discharged' }}">{{ _('Discharged Normal') }}</option>
                           <option value="{{ 'Routine Screening'}}">{{ _('Routine Screening')}}</option> 
-                          <option value="{{ 'Follow-up' }}">{{ _('Continued Follow-up') }}</option>
+                          <option value="{{ 'Follow-up' }}">{{ _('Continue Follow-up') }}</option>
               </select>
             </div>
             </div>
@@ -105,11 +107,11 @@
               <div>
               <div class="form-group row mb-2">
                 <div class="col-md-8 offset-md-2">
-                    <button type="submit" class="btn btn-success float-left" style="font-size:20px; width:12%">
-                        {{ __('Save') }}
-                    </button>
-                    <button type="button" class="btn btn-primary float-right" onclick="location.href='{{ route('home') }}'" style="font-size:20px; width:12%">
+                    <button type="button" class="btn btn-primary float-left" onclick="location.href='{{ route('home') }}'" style="font-size:20px; width:12%">
                         {{ __('Back') }}
+                    </button>
+                    <button type="submit" class="btn btn-success float-right" style="font-size:20px; width:12%">
+                        {{ __('Save') }}
                     </button>
               </div>
             </div>
