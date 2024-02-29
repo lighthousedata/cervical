@@ -26,6 +26,7 @@ Route::post('/saveclient', [App\Http\Controllers\ClientController::class, 'store
 
 Route::get('/referral', [App\Http\Controllers\ReferralController::class, 'create'])->name('referral');
 Route::post('/savereferral', [App\Http\Controllers\ReferralController::class, 'store'])->name('savereferral');
+Route::get('/filterclient', [App\Http\Controllers\ReferralController::class, 'filterclients'])->name('filterclient');
 
 Route::get('/referraloutcome', [App\Http\Controllers\OutcomeController::class, 'create'])->name('referraloutcome');
 Route::post('/outcomes', [App\Http\Controllers\OutcomeController::class, 'store'])->name('outcomes');

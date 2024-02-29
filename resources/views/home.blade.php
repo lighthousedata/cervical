@@ -39,7 +39,7 @@
 
         // Create a data object with your data
         var data = {
-          labels  : ['October', 'November', 'December', 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August','September'],
+          labels  : ['Oct-23', 'Nov-23', 'Dec-23', 'Jan-24', 'Feb-24', 'Mar-24', 'Apr-24', 'May-24', 'Jun-24', 'Jul-24', 'Aug-24','Sep-24'],
           datasets: [
             {
               label               : 'Total Referals',
@@ -123,9 +123,12 @@
                 legend: {
                     display: true,
                 },
+                
               },
             },
+          
         });
     </script>
+
 
 @endsection

@@ -29,6 +29,7 @@ class OutcomeController extends Controller
 
     $rules =[
       'clientnumber' =>'required | exists:referrals,clientnumber', //check if client has referral details
+      'assessment_outcome' =>'',
       'followup_outcome' =>'',
       'sample_type' =>'',
       'histology_result' =>'',
@@ -50,6 +51,7 @@ class OutcomeController extends Controller
 
     $outcome = new Outcome();
     $outcome->clientnumber = $request->clientnumber;
+    $outcome->assessment_outcome=$request->assessment_outcome;
     $outcome->followup_outcome = $request->followup_outcome;
     $outcome->sample_type = $request->sample_type;
     $outcome->histology_result = $request->histology_result;
@@ -87,14 +89,6 @@ class OutcomeController extends Controller
 
       return view ('searchoutcome')->withDetails($outcome);
   }
-
-  //public function client(Request $request)
-  //{
-    //$find = Input::get('query');
-    //$referraldetails = Referral::where('clientnumber', 'LIKE', $find)->orwhere('firstname', 'LIKE', $find)->get()->take(5);
-
-    //return view ('searchclient')->withDetails($referraldetails);
-  //}
 
   public function edit($id)
   {

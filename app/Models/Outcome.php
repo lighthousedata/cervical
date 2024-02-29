@@ -13,7 +13,7 @@ class Outcome extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'clientnumber', 'followup_outcome', 'sample_type', 'histology_result', 'treatment_provided', 'recomended_plan', 'feedback'];
+        'clientnumber', 'followup_outcome', 'sample_type', 'histology_result', 'treatment_provided', 'recommended_plan', 'feedback'];
 
     public function referral()
     {

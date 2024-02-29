@@ -39,19 +39,19 @@
                    <label class="col-form-label" style="margin-left: 10%">{{ __('Client Number') }}</label>
                    <input id="clientnumber" class="text-box" name="clientnumber" style="width: 18%; margin-left: 4.6%" value="{{ old('clientnumber') }}">
                    <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('LH PID') }}</label>
-                   <input id="LH_pid" class="text-box" name="LH_pid" style="width: 15%; margin-left: 9.5%" value="{{ old('LH_pid') }}">
+                   <input id="LH_pid" class="text-box" name="LH_pid" style="width: 15%; margin-left: 10.7%" value="{{ old('LH_pid') }}">
                 </div>
                 <div class=form-group>
                    <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('First Name') }}</label>
                    <input id="firstname" class="text-box" name="firstname" style="width:18%; margin-left: 7%" value="{{ old('firstname') }}">
                    <label class="col-form-label" style="margin-left: 10%">{{ __('Last Name') }}</label>
-                   <input id="lastname" class="text-box" name="lastname" style="width:15%; margin-left: 7%" value="{{ old('lastname') }}">
+                   <input id="lastname" class="text-box" name="lastname" style="width:15%; margin-left: 8.3%" value="{{ old('lastname') }}">
                  </div>
                  <div class=form-group>
                    <label class="col-form-label" style="margin-left: 10%">{{ __('Contact') }}</label>
                    <input id="contact" class="text-box" name="contact" style="width:18%; margin-left: 9%" value="{{ old('contact') }}">
                    <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Age Group') }}</label>
-                   <select class="text-box" name="age_group" style="width: 10%; margin-left: 6.8%" value="{{ old('age_group') }}">
+                   <select class="text-box" name="age_group" style="width: 10%; margin-left: 8%" value="{{ old('age_group') }}">
                    <option value="">-- Age Group --</option>
                    <option value="{{ 'Unknown' }}">{{ _('Unknown') }}</option>
                    <option value="{{ '15-19' }}">{{ _('15-19') }}</option>
@@ -73,7 +73,7 @@
                    <option value="{{ 'Post Treatment' }}">{{ _('Post Treatment Follow-up') }}</option>
                    </select>
                    <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('HIV Status') }}</label>
-                   <select class="text-box" name="hiv_status" style="width: 15%; margin-left: 7%" value="{{ old('hiv_status') }}">
+                   <select class="text-box" name="hiv_status" style="width: 15%; margin-left: 8.5%" value="{{ old('hiv_status') }}">
                    <option value="">-- HIV Status --</option>
                    <option value="{{ 'Pos on ART' }}">{{ _('Positive on ART') }}</option>
                    <option value="{{ 'Pos NOT on ART' }}">{{ _('Positive NOT on ART') }}</option>
@@ -90,28 +90,17 @@
               <option value="{{ 'CA Suspect' }}">{{ _('Suspect Cancer') }}</option>
               <option value="{{ 'No Treatment' }}">{{ _('No Treatment') }}</option>
               <option value="{{ 'Other Gynae' }}">{{ _('Other Gynae') }}</option>
-              </select>
-              <label class="col-form-label" style="margin-left: 11%">{{ __('Assessment Outcome') }}</label>
-              <select class="text-box" name="assessment_outcome" style="width: 17%; margin-left:1.5%" value="{{ old('assessment_outcome') }}">
-              <option value="">-- Assessment Outcome --</option>
-              <option value="{{ 'Chronic Cervitis/STI' }}">{{ _('Chronic Cervitis/STI') }}</option>
-              <option value="{{ 'VIA Negative' }}">{{ _('VIA Negative') }}</option>
-              <option value="{{ 'VIA Positive' }}">{{ _('VIA Positive') }}</option>
-              <option value="{{ 'PAP Smear Normal' }}">{{ _('PAP Smear Normal') }}</option>
-              <option value="{{ 'PAP Smear Abnormal' }}">{{ _('PAP Smear Abnormal') }}</option>
-              <option value="{{ 'No Visible Lesion' }}">{{ _('No Visible Lesion') }}</option>
-              <option value="{{ 'CA Suspect' }}">{{ _('Suspected Cancer') }}</option>
-              </select>
+              </select>              
             </div>
             <hr>
               <div>
               <div class="form-group row mb-2">
                 <div class="col-md-8 offset-md-2">
-                    <button type="submit" class="btn btn-success float-left" style="font-size:20px; width:12%">
-                        {{ __('Save') }}
-                    </button>
-                    <button type="button" class="btn btn-primary float-right" onclick="location.href='{{ route('home') }}'" style="font-size:20px; width:12%">
+                    <button type="button" class="btn btn-primary float-left" onclick="location.href='{{ route('home') }}'" style="font-size:20px; width:12%">
                         {{ __('Back') }}
+                    </button>
+                    <button type="submit" class="btn btn-success float-right" style="font-size:20px; width:12%">
+                        {{ __('Save') }}
                     </button>
               </div>
             </div>

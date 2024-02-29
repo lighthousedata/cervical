@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Referral;
 use Illuminate\Support\Facades\Request as Input;
 
+
 class ReferralController extends Controller
 {
   public function __construct()
@@ -35,7 +36,6 @@ class ReferralController extends Controller
       'screening_type'=>'required',
       'hiv_status'=>'required',
       'referral_reason'=>'required',
-      'assessment_outcome'=>'required',
     ]);
     $referral= new Referral();
     $referral->referral_date=$request->referral_date;
@@ -48,9 +48,20 @@ class ReferralController extends Controller
     $referral->screening_type=$request->screening_type;
     $referral->hiv_status=$request->hiv_status;
     $referral->referral_reason=$request->referral_reason;
-    $referral->assessment_outcome=$request->assessment_outcome;
     $referral->save();
 
     return redirect()->route('referral')->with('success','Referral Client Successfully Entered !');
   }
+
+public function filterclients(Request $request)
+  {
+      $startdate = $request->startdate;
+      $enddate = $request->enddate;
+
+      $filter = Referral::whereBetween('referral_date', [$startdate, $enddate])->orderBy('referral_date', 'DESC')
+                          ->Join('outcomes', 'outcomes.clientnumber', 'referrals.clientnumber')->get();
+
+      return view ('searchreferredclient')->withDetails($filter);
+  }
+
 }
