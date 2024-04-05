@@ -19,9 +19,9 @@ class OutcomeController extends Controller
  *
  * @return \Illuminate\Http\Response
  */
-  public function create()
+  public function create($referralid)
   {
-     return view ('outcome');
+     return view ('outcome', ['referralid'=>$referralid]);
   }
 
   public function store(Request $request)
@@ -50,6 +50,7 @@ class OutcomeController extends Controller
     }
 
     $outcome = new Outcome();
+    $outcome->referralid = $request->referralid;
     $outcome->clientnumber = $request->clientnumber;
     $outcome->assessment_outcome=$request->assessment_outcome;
     $outcome->followup_outcome = $request->followup_outcome;
@@ -94,5 +95,11 @@ class OutcomeController extends Controller
   {
     $outcome = Outcome::find($id);
     return view('edit-outcome', compact('outcome'));
+  }
+
+  public function editsearch($id)
+  {
+    $outcome = Outcome::find($id);
+    return view('edit-search-outcome', compact('outcome'));
   }
 }

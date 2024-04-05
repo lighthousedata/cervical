@@ -1,5 +1,7 @@
 @extends('adminlte::page')
-
+@section('content_header')
+<div style="text-align:center; font-size:50px; font-weight: bold">MPC Cervical Cancer Referral Dashboard</div>
+@stop
 @section('content')
     <!-- AdminLTE CSS and JS -->
     <link rel="stylesheet" href="path-to-adminlte/dist/css/adminlte.min.css">
@@ -13,26 +15,52 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="chart-container col-md-12" style="display: flex;">
       <!-- Chart.js Chart -->
-      <div class="card" style="margin-top: 5%; margin-left: 5%; margin-right: 5%">
+      <div class="card" style="margin-top: 2%; margin-left: 5%; margin-right: 5%">
         <div class="card-header">
           <h1 class="card-title">Cervical Cancer Referals and Outcomes</h1>
         </div>
         <div class="chart">
-          <canvas id="barChart" height="500px" width="800px"></canvas>
+          <canvas id="barChart" height="300px" width="800px"></canvas>
         </div>
       </div>
 
     <!-- Chart.js Chart -->
-    <div class="card" style="margin-top: 5%">
+    <div class="card" style="margin-top: 2%">
       <div class="card-header">
         <h1 class="card-title">Referrals By Screening Type</h1>
       </div>
       <div class="chart">
-        <canvas id="pieChart" height="500px" width="600px"></canvas>
+        <canvas id="pieChart" height="300px" width="600px"></canvas>
       </div>
     </div>
   </div>
 
+  <div class="chart-container col-md-12" style="display: flex;">
+  <div class="card" style="margin-top: 2%; margin-left: 5%; margin-right: 5%">
+    <div class="card-header">
+      <h1 class="card-title">Reasons for Referral</h1>
+    </div>
+    <div class="chart">
+      <canvas id="pieChart1" height="300px" width="600px"></canvas>
+    </div>
+  </div>
+  <div class="card" style="margin-top: 2%; margin-right: 5%">
+    <div class="card-header">
+      <h1 class="card-title">Diagnosis Outcomes</h1>
+    </div>
+    <div class="chart">
+      <canvas id="pieChart2" height="300px" width="500px"></canvas>
+    </div>
+  </div>
+  <div class="card" style="margin-top: 2%; margin-right: 3.1%">
+    <div class="card-header">
+      <h1 class="card-title">Treatment Outcomes</h1>
+    </div>
+    <div class="chart">
+      <canvas id="pieChart3" height="300px" width="500px"></canvas>
+    </div>
+  </div>
+ </div>
     <script>
         // Get a reference to the canvas element
         var barChart = document.getElementById('barChart').getContext('2d');
@@ -95,6 +123,7 @@
         var myChart = new Chart(barChart, {
             type: 'bar', // Type of chart (e.g., 'bar', 'line', 'pie')
             data: data,
+
         });
     </script>
     <script>
@@ -123,12 +152,108 @@
                 legend: {
                     display: true,
                 },
-                
+
               },
             },
-          
+
         });
     </script>
 
+    <script>
+        // Get a reference to the canvas element
+        var pieChart = document.getElementById('pieChart1').getContext('2d');
+
+        // Create a data object with your data
+        var data = {
+          labels  : ['Large Lesions', 'CA Suspects', 'Other Gynae'],
+          datasets: [
+            {
+              backgroundColor     : ['green', 'blue', 'red'],
+              data                : [{{$largelesion}}, {{$CAsuspect}}, {{$othergynae}}]
+            },
+          ]
+        };
+
+        // Create and render the chart
+        var myChart = new Chart(pieChart, {
+            type: 'pie', // Type of chart (e.g., 'bar', 'line', 'pie')
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                legend: {
+                    display: true,
+                },
+
+              },
+            },
+
+        });
+    </script>
+    <script>
+        // Get a reference to the canvas element
+        var pieChart = document.getElementById('pieChart2').getContext('2d');
+
+        // Create a data object with your data
+        var data = {
+          labels  : ['Normal', 'CIN I', 'CIN II', 'CIN III', 'Carcinoma', 'Invasive Cancer'],
+          datasets: [
+            {
+              backgroundColor     : ['green', 'blue', 'red', 'pink', 'orange', 'grey'],
+              data                : [{{$normal}}, {{$cin1}}, {{$cin2}}, {{$cin3}}, {{$carcinoma}}, {{$invasivecancer}}]
+            },
+          ]
+        };
+
+        // Create and render the chart
+        var myChart = new Chart(pieChart, {
+            type: 'pie', // Type of chart (e.g., 'bar', 'line', 'pie')
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                legend: {
+                    display: true,
+                },
+
+              },
+            },
+
+        });
+    </script>
+    <script>
+        // Get a reference to the canvas element
+        var pieChart = document.getElementById('pieChart3').getContext('2d');
+
+        // Create a data object with your data
+        var data = {
+          labels  : ['LEEP', 'Chemotherapy', 'Hysterectomy', 'Thermotherapy', 'Other Gynae'],
+          datasets: [
+            {
+              backgroundColor     : ['green', 'blue', 'red', 'pink', 'orange'],
+              data                : [{{$leep}}, {{$chemo}}, {{$hysterectomy}}, {{$thermo}}, {{$gynae}}]
+            },
+          ]
+        };
+
+        // Create and render the chart
+        var myChart = new Chart(pieChart, {
+            type: 'pie', // Type of chart (e.g., 'bar', 'line', 'pie')
+            data: data,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                legend: {
+                    display: true,
+                },
+
+              },
+            },
+
+        });
+    </script>
 
 @endsection

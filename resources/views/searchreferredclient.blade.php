@@ -13,7 +13,7 @@
       <form class="col-md-9 offset-md-2" action="filterclient" method="GET" role="search">
         <div class="form-group col-md-6">
           <label class="form-group">Start Date: </label>
-          <input type="date" name="startdate" class="form-control">                    
+          <input type="date" name="startdate" class="form-control">
           <label class="form-group">End Date: </label>
           <input type="date" name="enddate" class="form-control">
         </div>
@@ -22,7 +22,7 @@
           <span class="fas"></span>Search</button>
           <a href="{{ route('filterclient') }}" class=""></a>
         </div>
-        <table class="table table-responsive" style="font-size: 15px">
+        <table class="table table-striped table-bordered" style="font-size: 15px; ">
           <thead>
             <tr>
               <th>Client Number</th>
@@ -55,4 +55,3 @@
   </div>
 </div>
 @endsection
-

@@ -30,27 +30,24 @@
           </span>
           </a>
         </div>
-        <table class="table table-responsive" style="font-size: 15px">
+        <table class="table table table-striped table-bordered" style="font-size: 15px; margin-top: 2%">
           <thead>
             <tr>
+              <th>Referral ID</th>
               <th>Client Number</th>
               <th>FirstName</th>
               <th>LastName</th>
-              <th>Referral Date</th>
-              <th>Histology Result</th>
-              <th>Treatment</th>
+              <th>Referral Date</th>              
             </tr>
           </thead>
           <tbody>
             @foreach($details as $clientdetails)
            <tr>
+             <td>{{$clientdetails->id}}</td>
              <td>{{$clientdetails->clientnumber}}</td>
              <td>{{$clientdetails->firstname}}</td>
              <td>{{$clientdetails->lastname}}</td>
              <td>{{$clientdetails->referral_date}}</td>
-             <td>{{$clientdetails->histology_result}}</td>
-             <td>{{$clientdetails->treatment_provided}}</td>
-          </tr>
            @endforeach
           </tbody>
         </table>

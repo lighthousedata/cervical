@@ -309,11 +309,6 @@ return [
             'icon'        => 'far fa-fw fa fa-file-alt',
         ],
         [
-            'text'        => 'Enter Referral Outcomes',
-            'url'         => 'referraloutcome',
-            'icon'        => 'far fa-fw fa fa-file-alt',
-        ],
-        [
             'text'        => 'Update Outcomes',
             'url'         => 'searchoutcome',
             'icon'        => 'fas fa-edit',
@@ -328,12 +323,11 @@ return [
             'url'         => 'filterclient',
             'icon'        => 'fas fa-clipboard-list',
         ],
-        ['header' => 'account_settings'],
         [
-            'text' => 'Register',
-            'url'  => 'register',
-            'icon' => 'fas fa-fw fa-user',
-        ],
+            'text'        => 'Referral Report',
+            'url'         => 'reportdata',
+            'icon'        => 'fas fa-clipboard-list',
+        ],        
       ],
 
     /*

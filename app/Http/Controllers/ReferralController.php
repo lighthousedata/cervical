@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Referral;
+use App\Models\Outcome;
 use Illuminate\Support\Facades\Request as Input;
 
 
@@ -27,7 +28,7 @@ class ReferralController extends Controller
   {
     $this->validate($request,[
       'referral_date'=>'required',
-      'clientnumber'=>'required',
+      'clientnumber'=>'',
       'LH_pid'=>'',
       'firstname'=>'required',
       'lastname'=>'required',
@@ -49,6 +50,19 @@ class ReferralController extends Controller
     $referral->hiv_status=$request->hiv_status;
     $referral->referral_reason=$request->referral_reason;
     $referral->save();
+    $referral->id;
+
+              $referral=Referral::find($referral->id);
+              $outcome = new Outcome();
+              $outcome->clientnumber = $request->clientnumber;
+              $outcome->assessment_outcome=$request->assessment_outcome;
+              $outcome->followup_outcome = $request->followup_outcome;
+              $outcome->sample_type = $request->sample_type;
+              $outcome->histology_result = $request->histology_result;
+              $outcome->treatment_provided = $request->treatment_provided;
+              $outcome->recommended_plan = $request->recommended_plan;
+              $outcome->feedback = $request->feedback;
+              $referral->outcome()->save($outcome);
 
     return redirect()->route('referral')->with('success','Referral Client Successfully Entered !');
   }
@@ -59,9 +73,16 @@ public function filterclients(Request $request)
       $enddate = $request->enddate;
 
       $filter = Referral::whereBetween('referral_date', [$startdate, $enddate])->orderBy('referral_date', 'DESC')
-                          ->Join('outcomes', 'outcomes.clientnumber', 'referrals.clientnumber')->get();
+                          ->Join('outcomes', 'outcomes.referralid', 'referrals.id')->get();
 
       return view ('searchreferredclient')->withDetails($filter);
   }
+  public function search(Request $request)
+  {
+    $find = Input::get('query');
+    $referral = Referral::where('clientnumber', 'LIKE', $find)
+                        ->get()->take(5);
 
+    return view ('searchclient')->withDetails($referral);
+  }
 }

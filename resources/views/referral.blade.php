@@ -85,14 +85,36 @@
               <label class="col-form-label text-md-right">{{ __('Referral Reason') }}</label>
               <select class="text-box" name="referral_reason" style="width: 20%; margin-left: 4%" value="{{ old('referral_reason') }}">
               <option value="">-- Referral Reason --</option>
-              <option value="{{ 'Lesion <75%' }}">{{ _('Lesion < 75%') }}</option>
               <option value="{{ 'Lesion >75%' }}">{{ _('Lesion > 75%') }}</option>
               <option value="{{ 'CA Suspect' }}">{{ _('Suspect Cancer') }}</option>
               <option value="{{ 'No Treatment' }}">{{ _('No Treatment') }}</option>
               <option value="{{ 'Other Gynae' }}">{{ _('Other Gynae') }}</option>
-              </select>              
+              </select>
             </div>
             <hr>
+            <div class="card">
+                <div class="card-header" style="font-size: 20px">{{ __('Outcomes') }}</div>
+                <div class="card-body">
+                @if ($errors->any())
+                <div class="alert alert-danger">
+                   <ul>
+                       @foreach ($errors->all() as $error)
+                          <li>{{ $error }}</li>
+                       @endforeach
+                   </ul>
+                </div>
+                @endif
+                </div>
+            <form method="POST" action="{{ ('outcomes') }}">
+                 {{csrf_field()}}
+            <div class="form-group" style="font-size: 15px">
+            <div class=form-group style="font-size: 15px; margin-left: 10%">
+              <label class="col-form-label">{{ __('Client Number') }}</label>
+              <input id="clientnumber" class="text-box" name="clientnumber" style="width: 20%; margin-left: 5%" value="{{ old('clientnumber') }}">
+            </div>
+            </div>
+        </form>
+        <hr>
               <div>
               <div class="form-group row mb-2">
                 <div class="col-md-8 offset-md-2">
@@ -106,6 +128,7 @@
             </div>
           </div>
         </form>
+      </div>
       </div>
     </div>
    </div>

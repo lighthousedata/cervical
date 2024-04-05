@@ -29,7 +29,7 @@
           </span>
           </a>
         </div>
-        <table class="table table-responsive" style="font-size: 15px">
+        <table class="table table table-striped table-bordered" style="font-size: 15px; margin-top: 2%">
           <thead>
             <tr>
               <th>ID</th>

@@ -13,10 +13,10 @@ class Outcome extends Model
     protected $primaryKey = 'id';
 
     protected $fillable = [
-        'clientnumber', 'followup_outcome', 'sample_type', 'histology_result', 'treatment_provided', 'recommended_plan', 'feedback'];
+        'referralid', 'clientnumber', 'assessment_outcome', 'followup_outcome', 'sample_type', 'histology_result', 'treatment_provided', 'recommended_plan', 'feedback'];
 
     public function referral()
     {
-        return $this->belongsTo(Outcome::class, 'clientnumber');
-    }    
+        return $this->belongsTo(Referral::class,'id');
+    }
 }

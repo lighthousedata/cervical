@@ -20,11 +20,11 @@ class CreateReferralsTable extends Migration
             $table->string('referral_date');
             $table->string('firstname');
             $table->string('lastname');
+            $table->string('contact');
             $table->string('age_group');
             $table->string('screening_type');
             $table->string('hiv_status');
-            $table->string('referral_reason');
-            $table->string('assessment_outcome');
+            $table->string('referral_reason');            
             $table->timestamps();
         });
     }
