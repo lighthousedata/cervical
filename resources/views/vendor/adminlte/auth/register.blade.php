@@ -33,7 +33,7 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
-        </div>
+        </div>        
 
         {{-- Username field --}}
         <div class="input-group mb-3">
@@ -47,6 +47,24 @@
             </div>
 
             @error('username')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+        {{-- Facility field --}}
+        <div class="input-group mb-3">
+            <select class="text-box" name="facility" value="{{ old('facility') }}" style="width: 100%">
+                <option value="">-- select facility name --</option>
+                <option value="{{ '1' }}">{{ _('MPC') }}</option>
+                <option value="{{ '2' }}">{{ _('Lighthouse') }}</option>
+                <option value="{{ '3' }}">{{ _('Rainbow') }}</option>
+                <option value="{{ '4' }}">{{ _('UFC') }}</option>
+                <option value="{{ '5' }}">{{ _('Tisungane') }}</option>
+            </select>            
+
+            @error('facility')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>

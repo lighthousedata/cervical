@@ -20,6 +20,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'username',
+        'facility',
         'password',
     ];
 
@@ -41,4 +42,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Define method to retrieve user's facility
+    public function getFacility()
+    {
+        return $this->facility; // Assuming 'facility' is the field in the users table
+    }
 }

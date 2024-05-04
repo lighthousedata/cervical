@@ -27,7 +27,19 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    /*protected $redirectTo = RouteServiceProvider::HOME;*/
+
+    public function redirectTo()
+{
+    $for = [
+        '1' => 'mpc',
+        '2'  => 'lh',
+        '3'  => 'rainbow',
+        '4'  => 'ufc',
+        '5'  => 'tisungane',
+    ];
+    return $this->redirectTo = route($for[auth()->user()->facility]);
+}
 
     /**
      * Create a new controller instance.
@@ -41,6 +53,7 @@ class LoginController extends Controller
 
     public function username()
     {
-        return 'username';
-    }
+        return 'username';    }
+
+
 }
