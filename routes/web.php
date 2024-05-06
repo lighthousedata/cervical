@@ -41,7 +41,7 @@ Route::put('/updateoutcome/{id}', [App\Http\Controllers\OutcomeController::class
 Route::get('/searchoutcome', [App\Http\Controllers\OutcomeController::class, 'search'])->name('searchoutcome');
 Route::get('/searchclient', [App\Http\Controllers\ReferralController::class, 'search'])->name('searchclient');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/*Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');*/
 Route::get('/mpc', [App\Http\Controllers\HomeController::class, 'mpc'])->name('mpc');
 Route::get('/lh', [App\Http\Controllers\HomeController::class, 'lh'])->name('lh');
 Route::get('/rainbow', [App\Http\Controllers\HomeController::class, 'rainbow'])->name('rainbow');
