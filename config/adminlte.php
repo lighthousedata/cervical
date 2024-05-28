@@ -294,7 +294,7 @@ return [
         // Sidebar items:
         [
             'text'        => 'Home',
-            'url'         => 'mpc',
+            'url'         => 'home',
             'icon'        => 'far fa-fw fa fa-home',
         ],
         ['header' => 'Entry'],
