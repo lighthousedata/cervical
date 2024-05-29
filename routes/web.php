@@ -40,14 +40,9 @@ Route::get('/editsearchoutcome/{id}', [App\Http\Controllers\OutcomeController::c
 Route::put('/updateoutcome/{id}', [App\Http\Controllers\OutcomeController::class, 'update'])->name('updateoutcome');
 Route::get('/searchoutcome', [App\Http\Controllers\OutcomeController::class, 'search'])->name('searchoutcome');
 Route::get('/searchclient', [App\Http\Controllers\ReferralController::class, 'search'])->name('searchclient');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-/*
-Route::get('/mpc', [App\Http\Controllers\HomeController::class, 'mpc'])->name('mpc');
-Route::get('/lh', [App\Http\Controllers\HomeController::class, 'lh'])->name('lh');
-Route::get('/rainbow', [App\Http\Controllers\HomeController::class, 'rainbow'])->name('rainbow');
-Route::get('/ufc', [App\Http\Controllers\HomeController::class, 'ufc'])->name('ufc');
-Route::get('/tisungane', [App\Http\Controllers\HomeController::class, 'tisungane'])->name('tisungane');
-*/
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
