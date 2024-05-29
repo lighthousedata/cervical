@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Config;
 use App\Models\Referral;
 use App\Models\Outcome;
 use Khill\Lavacharts\Lavacharts;
@@ -270,12 +269,6 @@ class HomeController extends Controller
 
     public function lh()
     {
-      // Load location-specific configuration dynamically
-    $config = Config::get('adminlte_lh');
-
-    // Now you can use $config as needed, for example:
-      $skin = isset($config['skin']) ? $config['skin'] : 'default_skin';
-
       $oct = Referral::whereBetween('referral_date', ['2023-10-01', '2023-10-31'])
                        ->where('facility', '=', '2')->count();
       $nooutcome_oct = Referral::whereBetween('referral_date', ['2023-10-01', '2023-10-31'])
@@ -495,7 +488,7 @@ class HomeController extends Controller
                         ->where('facility', '=', '2')
                         ->join('referrals', 'referrals.id', 'outcomes.referralid')->count();
 
-        return view('lh/home', compact('config', 'oct', 'nooutcome_oct', 'partialoutcome_oct', 'fulloutcome_oct', 'nov', 'nooutcome_nov', 'partialoutcome_nov', 'fulloutcome_nov', 'dec', 'nooutcome_dec', 'partialoutcome_dec', 'fulloutcome_dec',
+        return view('lh/home', compact('oct', 'nooutcome_oct', 'partialoutcome_oct', 'fulloutcome_oct', 'nov', 'nooutcome_nov', 'partialoutcome_nov', 'fulloutcome_nov', 'dec', 'nooutcome_dec', 'partialoutcome_dec', 'fulloutcome_dec',
                     'jan', 'nooutcome_jan', 'partialoutcome_jan', 'fulloutcome_jan', 'feb', 'nooutcome_feb', 'partialoutcome_feb', 'fulloutcome_feb', 'mar', 'nooutcome_mar', 'partialoutcome_mar', 'fulloutcome_mar',
                     'apr', 'nooutcome_apr', 'partialoutcome_apr', 'fulloutcome_apr', 'may', 'nooutcome_may', 'partialoutcome_may', 'fulloutcome_may', 'jun', 'nooutcome_jun', 'partialoutcome_jun', 'fulloutcome_jun',
                     'jul', 'nooutcome_jul', 'partialoutcome_jul', 'fulloutcome_jul', 'aug', 'nooutcome_aug', 'partialoutcome_aug', 'fulloutcome_aug', 'sep', 'nooutcome_sep', 'partialoutcome_sep', 'fulloutcome_sep',

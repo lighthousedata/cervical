@@ -80,7 +80,6 @@
                           <option {{ ($outcome->histology_result =="CIN III") ? 'selected' : '' }}>CIN III</option>
                           <option {{ ($outcome->histology_result =="Carcinoma") ? 'selected' : ''}}>Carcinoma in Situ</option>
                           <option {{ ($outcome->histology_result =="Invasive Cancer") ? 'selected' : '' }}>Invasive Cancer</option>
-                          <option {{ ($outcome->histology_result =="Other") ? 'selected' : '' }}>Other</option>
               </select>
               <label class="col-form-label" style="margin-left: 10%">{{ __('Treatment Provided') }}</label>
               <select type="text" class="text-box" name="treatment_provided" style="width: 18%; margin-left: 2%; font-size: 12px" value="{{ $outcome->treatment_provided}}">

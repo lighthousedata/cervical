@@ -37,7 +37,6 @@ class ReferralController extends Controller
       'screening_type'=>'required',
       'hiv_status'=>'required',
       'referral_reason'=>'required',
-      'facility'=>'required',
     ]);
     $referral= new Referral();
     $referral->referral_date=$request->referral_date;
@@ -50,7 +49,6 @@ class ReferralController extends Controller
     $referral->screening_type=$request->screening_type;
     $referral->hiv_status=$request->hiv_status;
     $referral->referral_reason=$request->referral_reason;
-    $referral->facility=$request->facility;
     $referral->save();
     $referral->id;
 
