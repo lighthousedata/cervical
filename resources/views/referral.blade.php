@@ -90,6 +90,15 @@
               <option value="{{ 'No Treatment' }}">{{ _('No Treatment') }}</option>
               <option value="{{ 'Other Gynae' }}">{{ _('Other Gynae') }}</option>
               </select>
+              <label class="col-form-label text-md-right" style="margin-left: 11%">{{ __('Facility Name') }}</label>
+              <select class="text-box" name="facility" style="width: 17%; margin-left: 7.3%" value="{{ old('facility') }}">
+              <option value="">-- Facility --</option>
+              <option value="{{ '1' }}">{{ _('MPC') }}</option>
+              <option value="{{ '2' }}">{{ _('Lighthouse') }}</option>
+              <option value="{{ '3' }}">{{ _('Rainbow') }}</option>
+              <option value="{{ '4' }}">{{ _('UFC') }}</option>
+              <option value="{{ '5' }}">{{ _('Tisungane') }}</option>
+              </select>
             </div>
             <hr>
             <div class="card">

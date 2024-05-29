@@ -77,6 +77,7 @@
                           <option value="{{ 'CIN III' }}">{{ _('CIN III') }}</option>
                           <option value="{{ 'Carcinoma' }}">{{ _('Carcinoma in Situ') }}</option>
                           <option value="{{ 'Invasive Cancer' }}">{{ _('Invasive Cancer') }}</option>
+                          <option value="{{ 'Other' }}">{{ _('Other') }}</option>
               </select>
               <label class="col-form-label" style="margin-left: 8.5%">{{ __('Treatment Provided') }}</label>
               <select class="text-box" name="treatment_provided" style="width: 18%; margin-left: 2.5%; font-size: 15px" value="{{ old('treatment_provided') }}">

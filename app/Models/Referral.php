@@ -12,7 +12,7 @@ class Referral extends Model
     protected $table = 'referrals';
     protected $primaryKey = 'id';
     protected $fillable = [
-        'clientnumber', 'LH_pid', 'referral_date', 'firstname', 'lastname', 'age_group', 'screening_type', 'hiv_status', 'referral_reason'];
+        'clientnumber', 'facility', 'LH_pid', 'referral_date', 'firstname', 'lastname', 'age_group', 'screening_type', 'hiv_status', 'referral_reason'];
 
     public function client()
     {
