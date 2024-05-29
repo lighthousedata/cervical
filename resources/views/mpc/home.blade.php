@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 @section('content_header')
-<div style="text-align:center; font-size:50px; font-weight: bold">MPC Cervical Cancer Referral Dashboard</div>
+<div style="text-align:center; font-size:50px; font-weight: bold">{{ $this_facility }} Cervical Cancer Referral Dashboard</div>
 @stop
 @section('content')
     <!-- AdminLTE CSS and JS -->
