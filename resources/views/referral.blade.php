@@ -90,30 +90,17 @@
               <option value="{{ 'No Treatment' }}">{{ _('No Treatment') }}</option>
               <option value="{{ 'Other Gynae' }}">{{ _('Other Gynae') }}</option>
               </select>
-            </div>
-            <hr>
-            <div class="card">
-                <div class="card-header" style="font-size: 20px">{{ __('Outcomes') }}</div>
-                <div class="card-body">
-                @if ($errors->any())
-                <div class="alert alert-danger">
-                   <ul>
-                       @foreach ($errors->all() as $error)
-                          <li>{{ $error }}</li>
-                       @endforeach
-                   </ul>
-                </div>
-                @endif
-                </div>
-            <form method="POST" action="{{ ('outcomes') }}">
-                 {{csrf_field()}}
-            <div class="form-group" style="font-size: 15px">
-            <div class=form-group style="font-size: 15px; margin-left: 10%">
-              <label class="col-form-label">{{ __('Client Number') }}</label>
-              <input id="clientnumber" class="text-box" name="clientnumber" style="width: 20%; margin-left: 5%" value="{{ old('clientnumber') }}">
-            </div>
-            </div>
-        </form>
+              <label class="col-form-label text-md-right" style="margin-left: 11%">{{ __('Facility') }}</label>
+              <select class="text-box" name="facility" style="width: 16.5%; margin-left: 12%" value="{{ old('facility') }}">
+              <option value="">-- Facility --</option>
+              <option value="{{ '1' }}">{{ _('MPC') }}</option>
+              <option value="{{ '2' }}">{{ _('Lighthouse') }}</option>
+              <option value="{{ '3' }}">{{ _('Rainbow') }}</option>
+              <option value="{{ '4' }}">{{ _('UFC') }}</option>
+              <option value="{{ '5' }}">{{ _('Tisungane') }}</option>
+              </select>
+            </div>           
+            
         <hr>
               <div>
               <div class="form-group row mb-2">

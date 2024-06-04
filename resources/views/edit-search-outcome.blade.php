@@ -32,7 +32,7 @@
               <label class="col-form-label">{{ __('Client Number') }}</label>
               <input id="clientnumber" class="text-box" name="clientnumber" style="width: 20%; margin-left: 5%" value="{{$outcome->clientnumber}}">
               <label class="col-form-label" style="margin-left: 11%">{{ __('Assessment Outcome') }}</label>
-              <select class="text-box" name="assessment_outcome" style="width: 20%; margin-left:1.5%" value="{{ old('assessment_outcome') }}">
+              <select class="text-box" name="assessment_outcome" style="width: 20%; margin-left:1.5%" value="{{ $outcome->assessment_outcome }}">
               <option value="">-- Assessment Outcome --</option>
               <option {{ ($outcome->assessment_outcome =="Chronic Cervitis/STI") ? 'selected' : ''}}>Chronic Cervitis/STI</option>
               <option {{ ($outcome->assessment_outcome =="VIA Negative") ? 'selected' : ''}}>VIA Negative</option>

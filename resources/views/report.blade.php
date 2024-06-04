@@ -3,7 +3,7 @@
 @section('title', 'Cervical Cancer | Referral Report')
 
 @section('content_header')
-<div style="text-align:center; font-size:50px; font-weight: bold">MPC Cervical Cancer Referral Report</div>
+<div style="text-align:center; font-size:50px; font-weight: bold">{{$this_facility}} Cervical Cancer Referral Report</div>
 @stop
 @section('content')
 <div class="col-md-10">

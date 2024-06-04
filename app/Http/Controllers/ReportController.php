@@ -90,12 +90,25 @@ class ReportController extends Controller
 
     public function index(Request $request)
     {
+      $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+
       $startdate = $request->startdate;
       $enddate = $request->enddate;
 
       $referralreport = Referral::whereBetween('referral_date', [$startdate, $enddate])->orderBy('referral_date', 'DESC')
-                          ->Join('outcomes', 'outcomes.referralid', 'referrals.id')->get();
+                                ->Join('outcomes', 'outcomes.referralid', 'referrals.id')
+                                ->where('facility', '=', $facility_id)->get();
 
-      return view ('report')->withDetails($referralreport);
+      return view ('report', compact('this_facility'))->withDetails($referralreport);
     }
 }

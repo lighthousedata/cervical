@@ -37,6 +37,7 @@ class ReferralController extends Controller
       'screening_type'=>'required',
       'hiv_status'=>'required',
       'referral_reason'=>'required',
+      'facility'=>'required',
     ]);
     $referral= new Referral();
     $referral->referral_date=$request->referral_date;
@@ -49,12 +50,14 @@ class ReferralController extends Controller
     $referral->screening_type=$request->screening_type;
     $referral->hiv_status=$request->hiv_status;
     $referral->referral_reason=$request->referral_reason;
+    $referral->facility=$request->facility;
     $referral->save();
+    $referral->clientnumber;
     $referral->id;
 
               $referral=Referral::find($referral->id);
               $outcome = new Outcome();
-              $outcome->clientnumber = $request->clientnumber;
+              $outcome->clientnumber = $referral->clientnumber;
               $outcome->assessment_outcome=$request->assessment_outcome;
               $outcome->followup_outcome = $request->followup_outcome;
               $outcome->sample_type = $request->sample_type;
@@ -81,8 +84,15 @@ public function filterclients(Request $request)
   {
     $find = Input::get('query');
     $referral = Referral::where('clientnumber', 'LIKE', $find)
-                        ->get()->take(5);
+                        ->orwhere('firstname', 'LIKE', $find)->get()->take(1);
 
     return view ('searchclient')->withDetails($referral);
+  }
+  public function show($id)
+  {
+    $referral = Referral::find($id);
+    $outcome = $referral->outcome;
+
+    return view('clientinfo', compact('referral', 'outcome'));
   }
 }

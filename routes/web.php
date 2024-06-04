@@ -27,6 +27,8 @@ Route::post('/saveclient', [App\Http\Controllers\ClientController::class, 'store
 Route::get('/referral', [App\Http\Controllers\ReferralController::class, 'create'])->name('referral');
 Route::post('/savereferral', [App\Http\Controllers\ReferralController::class, 'store'])->name('savereferral');
 Route::get('/filterclient', [App\Http\Controllers\ReferralController::class, 'filterclients'])->name('filterclient');
+Route::get('/searchclient', [App\Http\Controllers\ReferralController::class, 'search'])->name('searchclient');
+Route::get('/clientinfo/{id}', [App\Http\Controllers\ReferralController::class, 'show'])->name('clientinfo');
 
 Route::get('/report', [App\Http\Controllers\ReportController::class, 'index'])->name('report');
 Route::get('/reportdata', [App\Http\Controllers\ReportController::class, 'home'])->name('reportdata');
@@ -39,7 +41,7 @@ Route::get('/editoutcome/{id}', [App\Http\Controllers\OutcomeController::class, 
 Route::get('/editsearchoutcome/{id}', [App\Http\Controllers\OutcomeController::class, 'editsearch'])->name('editsearchoutcome');
 Route::put('/updateoutcome/{id}', [App\Http\Controllers\OutcomeController::class, 'update'])->name('updateoutcome');
 Route::get('/searchoutcome', [App\Http\Controllers\OutcomeController::class, 'search'])->name('searchoutcome');
-Route::get('/searchclient', [App\Http\Controllers\ReferralController::class, 'search'])->name('searchclient');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
