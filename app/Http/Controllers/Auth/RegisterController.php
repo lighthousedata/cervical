@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\Facility;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -73,4 +74,5 @@ class RegisterController extends Controller
         ]);
         return redirect($this->redirectTo)->with('success', 'User Registered Successfully!');
     }
+    
 }

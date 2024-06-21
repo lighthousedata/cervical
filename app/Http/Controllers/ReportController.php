@@ -31,7 +31,19 @@ class ReportController extends Controller
      */
     public function home()
     {
-      return view('reportdata');
+      $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+
+      return view('reportdata', ['this_facility'=>$this_facility]);
     }
 
     public function exportdata(Request $request)

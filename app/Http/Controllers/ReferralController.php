@@ -21,7 +21,19 @@ class ReferralController extends Controller
  */
   public function create()
   {
-     return view ('referral');
+    $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+
+     return view ('referral', ['this_facility'=>$this_facility]);
   }
 
   public function store(Request $request)
@@ -72,21 +84,45 @@ class ReferralController extends Controller
 
 public function filterclients(Request $request)
   {
+    $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+
       $startdate = $request->startdate;
       $enddate = $request->enddate;
 
       $filter = Referral::whereBetween('referral_date', [$startdate, $enddate])->orderBy('referral_date', 'DESC')
                           ->Join('outcomes', 'outcomes.referralid', 'referrals.id')->get();
 
-      return view ('searchreferredclient')->withDetails($filter);
+      return view ('searchreferredclient', ['this_facility'=>$this_facility])->withDetails($filter);
   }
   public function search(Request $request)
   {
+    $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+
     $find = Input::get('query');
     $referral = Referral::where('clientnumber', 'LIKE', $find)
                         ->orwhere('firstname', 'LIKE', $find)->get()->take(1);
 
-    return view ('searchclient')->withDetails($referral);
+    return view ('searchclient', ['this_facility'=>$this_facility])->withDetails($referral);
   }
   public function show($id)
   {

@@ -21,6 +21,7 @@ class OutcomeController extends Controller
  */
   public function create($referralid)
   {
+    
      return view ('outcome', ['referralid'=>$referralid]);
   }
 
@@ -84,17 +85,41 @@ class OutcomeController extends Controller
     }
     public function search(Request $request)
     {
+      $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+
       $find = Input::get('query');
       $outcome = Outcome::where('clientnumber', 'LIKE', $find)
                           ->get()->take(5);
 
-      return view ('searchoutcome')->withDetails($outcome);
+      return view ('searchoutcome', ['this_facility'=>$this_facility])->withDetails($outcome);
   }
 
   public function edit($id)
   {
+    $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+
     $outcome = Outcome::find($id);
-    return view('edit-outcome', compact('outcome'));
+    return view('edit-outcome', ['this_facility'=>$this_facility], compact('outcome'));
   }
 
   public function editsearch($id)

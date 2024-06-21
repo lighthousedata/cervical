@@ -19,7 +19,19 @@ class ClientController extends Controller
    */
     public function create()
     {
-       return view ('client');
+        $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+
+       return view ('client', ['this_facility'=>$this_facility]);
     }
 
     public function store(Request $request)

@@ -34,6 +34,11 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+    public function facility()
+    {
+        return $this->belongsTo(Facility::class);
+    }
+
     /**
      * The attributes that should be cast.
      *
@@ -43,9 +48,5 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // Define method to retrieve user's facility
-    public function getFacility()
-    {
-        return $this->facility; // Assuming 'facility' is the field in the users table
-    }
+   
 }
