@@ -298,21 +298,7 @@ return [
             'icon'        => 'far fa-fw fa fa-home',
         ],
         ['header' => 'Entry'],
-        [
-            'text'        => 'Enter Clients',
-            'url'         => 'newclient',
-            'icon'        => 'far fa-fw fa fa-file-alt',
-        ],
-        [
-            'text'        => 'Enter Referrals',
-            'url'         => 'referral',
-            'icon'        => 'far fa-fw fa fa-file-alt',
-        ],
-        [
-            'text'        => 'Update Outcomes',
-            'url'         => 'searchoutcome',
-            'icon'        => 'fas fa-edit',
-        ],
+        
         [
             'text'        => 'Search a Client',
             'url'         => 'searchclient',

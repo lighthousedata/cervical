@@ -29,7 +29,7 @@
         </div>
         <div>
         <span @if(config('adminlte.usermenu_image')) class="d-none d-md-inline" @endif>
-            Facility: {{ $this_facility}}
+            Facility: {{ $this_facility}}  |  Date: {{ date('d-M-Y') }}
         </span>
         </div>
     </a>

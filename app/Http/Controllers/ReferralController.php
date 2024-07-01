@@ -119,10 +119,13 @@ public function filterclients(Request $request)
     $this_facility = $facilities[$facility_id];
 
     $find = Input::get('query');
+    $outcome = Outcome::where('clientnumber', 'LIKE', $find)->get();
     $referral = Referral::where('clientnumber', 'LIKE', $find)
                         ->orwhere('firstname', 'LIKE', $find)->get()->take(1);
+    
+                        
 
-    return view ('searchclient', ['this_facility'=>$this_facility])->withDetails($referral);
+    return view ('searchclient', ['this_facility'=>$this_facility])->withDetails($referral, $outcome);
   }
   public function show($id)
   {

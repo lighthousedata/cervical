@@ -19,10 +19,10 @@ class OutcomeController extends Controller
  *
  * @return \Illuminate\Http\Response
  */
-  public function create($referralid)
+  public function create()
   {
     
-     return view ('outcome', ['referralid'=>$referralid]);
+     return view ('outcome');
   }
 
   public function store(Request $request)
@@ -65,23 +65,35 @@ class OutcomeController extends Controller
     return redirect()->route('referraloutcome')->with('success','Referral Outcome Successfully Entered !');
   }
 
-    public function update(Request $request, $id)
+    public function update(Request $request, $outcomeid)
     {
-      $outcome = Outcome::find($id);
+      $outcome = Outcome::find($outcomeid);
       $input = $request->all();
       $outcome->update($input);
 
-      return redirect()->route('searchoutcome')->with('success','Referral Outcome Updated Successfully !');
+      return redirect()->route('searchclient')->with('success','Referral Outcome Updated Successfully !');
     }
 
     public function client(Request $request)
     {
+      $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+
       $find = Input::get('query');
       $outcome = Outcome::where('outcomes.clientnumber', 'LIKE', $find)
         ->orwhere('referrals.firstname', 'LIKE', $find)
-        ->Join('referrals', 'referrals.clientnumber', 'outcomes.clientnumber')->get()->take(5);
+        ->Join('referrals', 'referrals.clientnumber', 'outcomes.clientnumber')->get()->take(1);
 
-      return view ('searchclient')->withDetails($outcome);
+      return view ('searchclient', ['this_facility'=>$this_facility])->withDetails($outcome);
     }
     public function search(Request $request)
     {
@@ -104,7 +116,7 @@ class OutcomeController extends Controller
       return view ('searchoutcome', ['this_facility'=>$this_facility])->withDetails($outcome);
   }
 
-  public function edit($id)
+  public function edit($outcomeid)
   {
     $facility_id = auth()->user()->facility;
 
@@ -118,13 +130,13 @@ class OutcomeController extends Controller
 
     $this_facility = $facilities[$facility_id];
 
-    $outcome = Outcome::find($id);
+    $outcome = Outcome::find($outcomeid);
     return view('edit-outcome', ['this_facility'=>$this_facility], compact('outcome'));
   }
 
-  public function editsearch($id)
+  public function editsearch($outcomeid)
   {
-    $outcome = Outcome::find($id);
+    $outcome = Outcome::find($outcomeid);
     return view('edit-search-outcome', compact('outcome'));
   }
 }

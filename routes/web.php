@@ -27,7 +27,6 @@ Route::post('/saveclient', [App\Http\Controllers\ClientController::class, 'store
 Route::get('/referral', [App\Http\Controllers\ReferralController::class, 'create'])->name('referral');
 Route::post('/savereferral', [App\Http\Controllers\ReferralController::class, 'store'])->name('savereferral');
 Route::get('/filterclient', [App\Http\Controllers\ReferralController::class, 'filterclients'])->name('filterclient');
-Route::get('/searchclient', [App\Http\Controllers\ReferralController::class, 'search'])->name('searchclient');
 Route::get('/clientinfo/{id}', [App\Http\Controllers\ReferralController::class, 'show'])->name('clientinfo');
 
 Route::get('/report', [App\Http\Controllers\ReportController::class, 'index'])->name('report');
@@ -37,11 +36,11 @@ Route::get('/exportreferraldata', [App\Http\Controllers\ReportController::class,
 Route::get('/referraloutcome/{referralid}', [App\Http\Controllers\OutcomeController::class, 'create'])->name('referraloutcome');
 Route::post('/outcomes/{referralid}', [App\Http\Controllers\OutcomeController::class, 'store'])->name('outcomes');
 
-Route::get('/editoutcome/{id}', [App\Http\Controllers\OutcomeController::class, 'edit'])->name('editoutcome');
-Route::get('/editsearchoutcome/{id}', [App\Http\Controllers\OutcomeController::class, 'editsearch'])->name('editsearchoutcome');
-Route::put('/updateoutcome/{id}', [App\Http\Controllers\OutcomeController::class, 'update'])->name('updateoutcome');
+Route::get('/editoutcome/{outcomeid}', [App\Http\Controllers\OutcomeController::class, 'edit'])->name('editoutcome');
+Route::get('/editsearchoutcome/{outcomeid}', [App\Http\Controllers\OutcomeController::class, 'editsearch'])->name('editsearchoutcome');
+Route::put('/updateoutcome/{outcomeid}', [App\Http\Controllers\OutcomeController::class, 'update'])->name('updateoutcome');
 Route::get('/searchoutcome', [App\Http\Controllers\OutcomeController::class, 'search'])->name('searchoutcome');
-
+Route::get('/searchclient', [App\Http\Controllers\OutcomeController::class, 'client'])->name('searchclient');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

@@ -24,7 +24,7 @@
                 </div>
                 @endif
                 </div>
-            <form method="POST" action="/updateoutcome/{{$outcome->id}}">
+            <form method="POST" action="/updateoutcome/{{$outcome->outcomeid}}">
                  {{csrf_field()}}
                  @method('PUT')
             <div class="form-group" style="font-size: 12px">
@@ -109,11 +109,11 @@
             <hr>
               <div>
               <div class="form-group row mb-0">
-                <div class="col-md-8 offset-md-2">
+                <div class="col-md-8 offset-md-2" style="margin-bottom: 2%">
                     <button type="submit" class="btn btn-success float-right" style="font-size:20px; width:12%">
                         {{ __('Save') }}
                     </button>
-                    <button type="button" class="btn btn-primary float-left" onclick="location.href='{{ route('searchoutcome') }}'" style="font-size:20px; width:12%">
+                    <button type="button" class="btn btn-primary float-left" onclick="location.href='{{ route('searchclient') }}'" style="font-size:20px; width:12%">
                         {{ __('Back') }}
                     </button>
               </div>
