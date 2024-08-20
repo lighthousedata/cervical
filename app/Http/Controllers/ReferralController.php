@@ -63,13 +63,12 @@ class ReferralController extends Controller
     $referral->hiv_status=$request->hiv_status;
     $referral->referral_reason=$request->referral_reason;
     $referral->facility=$request->facility;
-    $referral->save();
-    $referral->clientnumber;
-    $referral->id;
-
-              $referral=Referral::find($referral->id);
+    $referral->save();     
+    $referral->id;                          
+              
               $outcome = new Outcome();
-              $outcome->clientnumber = $referral->clientnumber;
+              $outcome->referralid = $referral->id;
+              $outcome->clientnumber = $request->clientnumber;
               $outcome->assessment_outcome=$request->assessment_outcome;
               $outcome->followup_outcome = $request->followup_outcome;
               $outcome->sample_type = $request->sample_type;
@@ -121,7 +120,7 @@ public function filterclients(Request $request)
     $find = Input::get('query');
     $outcome = Outcome::where('clientnumber', 'LIKE', $find)->get();
     $referral = Referral::where('clientnumber', 'LIKE', $find)
-                        ->orwhere('firstname', 'LIKE', $find)->get()->take(1);
+                        ->orwhere('firstname', 'LIKE', $find)->get()->take(2);
     
                         
 
@@ -134,4 +133,25 @@ public function filterclients(Request $request)
 
     return view('clientinfo', compact('referral', 'outcome'));
   }
+
+  public function client(Request $request)
+    {
+      $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+
+      $find = Input::get('query');
+      $referral = Referral::where('referrals.clientnumber', 'LIKE', $find)                        
+                        ->Join('outcomes', 'outcomes.referralid', 'referrals.id')->get()->take(2);
+
+      return view ('searchclient', ['this_facility'=>$this_facility])->withDetails($referral);
+    }
 }

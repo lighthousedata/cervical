@@ -17,6 +17,6 @@ class Outcome extends Model
 
     public function referral()
     {
-        return $this->belongsTo(Referral::class,'clientnumber');
+        return $this->belongsTo(Referral::class,'id');
     }
 }

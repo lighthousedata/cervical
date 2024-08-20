@@ -29,7 +29,8 @@ class OutcomeController extends Controller
   {
 
     $rules =[
-      'clientnumber' =>'required | exists:referrals,clientnumber', //check if client has referral details
+      'referralid' => 'reqired | exists:referrals,id', //check if client has referral details 
+      'clientnumber' =>'required', 
       'assessment_outcome' =>'',
       'followup_outcome' =>'',
       'sample_type' =>'',
@@ -51,8 +52,8 @@ class OutcomeController extends Controller
     }
 
     $outcome = new Outcome();
-    $outcome->referralid = $request->referralid;
-    $outcome->clientnumber = $request->clientnumber;
+    $outcome->referralid = $request->referralid;  
+    $outcome->clientnumber = $request->clientnumber;      
     $outcome->assessment_outcome=$request->assessment_outcome;
     $outcome->followup_outcome = $request->followup_outcome;
     $outcome->sample_type = $request->sample_type;
@@ -73,28 +74,7 @@ class OutcomeController extends Controller
 
       return redirect()->route('searchclient')->with('success','Referral Outcome Updated Successfully !');
     }
-
-    public function client(Request $request)
-    {
-      $facility_id = auth()->user()->facility;
-
-      $facilities = $for = [
-        '1' => 'MPC',
-        '2'  => 'Lighthouse',
-        '3'  => 'Rainbow',
-        '4'  => 'UFC',
-        '5'  => 'Tisungane',
-    ];
-
-    $this_facility = $facilities[$facility_id];
-
-      $find = Input::get('query');
-      $outcome = Outcome::where('outcomes.clientnumber', 'LIKE', $find)
-        ->orwhere('referrals.firstname', 'LIKE', $find)
-        ->Join('referrals', 'referrals.clientnumber', 'outcomes.clientnumber')->get()->take(1);
-
-      return view ('searchclient', ['this_facility'=>$this_facility])->withDetails($outcome);
-    }
+    
     public function search(Request $request)
     {
       $facility_id = auth()->user()->facility;

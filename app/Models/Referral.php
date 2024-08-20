@@ -21,6 +21,6 @@ class Referral extends Model
 
     public function outcome()
     {
-        return $this->hasMany(Outcome::class, 'clientnumber');
+        return $this->hasMany(Outcome::class, 'referralid');
     }
 }
