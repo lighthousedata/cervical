@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Pagination\Paginator;
-use Illuminate\Http\StreamedResponse;
+/*use Illuminate\Http\StreamedResponse;*/
+use Symfony\Component\HttpFoundation\StreamedResponse;
 use Illuminate\Support\Facades\Response;
 use App\Models\Referral;
 use App\Models\Outcome;
@@ -46,58 +47,76 @@ class ReportController extends Controller
       return view('reportdata', ['this_facility'=>$this_facility]);
     }
 
+    public function exportcsv()
+    {
+      $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+
+      return view('reportdata(csv)', ['this_facility'=>$this_facility]);
+    }
+
     public function exportdata(Request $request)
     {
+      $facility_id = auth()->user()->facility;
+
+      $facilities = $for = [
+        '1' => 'MPC',
+        '2'  => 'Lighthouse',
+        '3'  => 'Rainbow',
+        '4'  => 'UFC',
+        '5'  => 'Tisungane',
+    ];
+
+    $this_facility = $facilities[$facility_id];
+    
       $startdate = $request->startdate;
       $enddate = $request->enddate;
 
+        //Fetch data from the database
       $referralreport = Referral::whereBetween('referral_date', [$startdate, $enddate])->orderBy('referral_date', 'DESC')
+                          ->where('facility', '=', $facility_id)
                           ->Join('outcomes', 'outcomes.referralid', 'referrals.id')->get();
 
-        $headers = ['Patient ID', 'Date Referred', 'Age Group', 'Reason For Visit', 'Category', 'Management', 'Diagnosis', 'Final Outcome', 'Comments'];
+          //Create a callback function to write data to the CSV
+        $callback= function() use ($referralreport){
+            $handle = fopen('php://output', 'w');
 
-            $csvData = [];
+            //write CSV header
+            fputcsv($handle, ['Patient ID', 'Date Referred', 'Age Group', 'Reason For Visit', 'Category', 'Management', 'Diagnosis', 'Final Outcome', 'Comments']);
 
+            //write CSV data
             foreach ($referralreport as $report) {
-                    $csvData[] = [
-                     $report->clientnumber,
-                     $report->referral_date,
-                     $report->age_group,
-                     $report->screening_type,
-                     $report->referral_reason,
-                     $report->followup_outcome,
-                     $report->histology_result,
-                     $report->recommended_plan,
-                     $report->feedback,
-                    ];
-        }
+              fputcsv($handle, [
+               $report->clientnumber,
+               $report->referral_date,
+               $report->age_group,
+               $report->screening_type,
+               $report->referral_reason,
+               $report->followup_outcome,
+               $report->histology_result,
+               $report->recommended_plan,
+               $report->feedback,
+              ]);}
+                fclose($handle);
+              } ;
+              
+              //Create a streamed response
+              $response = new StreamedResponse($callback, 200, [
+                'content-type' => 'text/csv',
+                'Content-Disposition' => 'attachment; filename="ReferralReport.csv"',
+              ]);
 
-        $fileName = 'transactions_' . time() . '.csv';
-
-        $filePath = storage_path('app/' . $fileName);
-
-        $fp = fopen($filePath, 'w');
-          fputcsv($fp, $headers);
-              foreach ($csvData as $row) {
-                fputcsv($fp, $row);
-              }
-                fclose($fp);
-
-                // Write the code to fetch and format the data here
-
-                return new StreamedResponse(function () use ($csvData, $headers) {
-                    $handle = fopen('php://output', 'w');
-                    fputcsv($handle, $headers);
-
-                    foreach ($csvData as $row) {
-                        fputcsv($handle, $row);
-                    }
-
-                    fclose($handle);
-                }, 200, [
-                    'Content-Type' => 'text/csv',
-                    'Content-Disposition' => 'attachment; filename="transactions.csv"',
-                ]);
+              return $response;
+             
     }
 
     public function index(Request $request)

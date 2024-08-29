@@ -314,6 +314,11 @@ return [
             'url'         => 'reportdata',
             'icon'        => 'fas fa-clipboard-list',
         ],
+        [
+            'text'        => 'Referral Report (CSV)',
+            'url'         => 'reportdata-csv',
+            'icon'        => 'fas fa-clipboard-list',
+        ],
       ],
 
     /*

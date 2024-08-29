@@ -32,6 +32,7 @@ Route::get('/searchclient', [App\Http\Controllers\ReferralController::class, 'cl
 
 Route::get('/report', [App\Http\Controllers\ReportController::class, 'index'])->name('report');
 Route::get('/reportdata', [App\Http\Controllers\ReportController::class, 'home'])->name('reportdata');
+Route::get('/reportdata-csv', [App\Http\Controllers\ReportController::class, 'exportcsv'])->name('reportdata-csv');
 Route::get('/exportreferraldata', [App\Http\Controllers\ReportController::class, 'exportdata'])->name('exportreferraldata');
 
 Route::get('/referraloutcome/{referralid}', [App\Http\Controllers\OutcomeController::class, 'create'])->name('referraloutcome');
