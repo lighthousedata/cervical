@@ -43,6 +43,8 @@ Route::get('/editsearchoutcome/{outcomeid}', [App\Http\Controllers\OutcomeContro
 Route::put('/updateoutcome/{outcomeid}', [App\Http\Controllers\OutcomeController::class, 'update'])->name('updateoutcome');
 Route::get('/searchoutcome', [App\Http\Controllers\OutcomeController::class, 'search'])->name('searchoutcome');
 
+Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Auth::routes();

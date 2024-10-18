@@ -319,6 +319,11 @@ return [
             'url'         => 'reportdata-csv',
             'icon'        => 'fas fa-clipboard-list',
         ],
+        [
+            'text'        => 'Register New User',
+            'url'         => 'register',
+            'icon'        => 'fas fa-clipboard-list',
+        ],
       ],
 
     /*

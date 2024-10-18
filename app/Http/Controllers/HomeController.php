@@ -48,11 +48,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_oct = Referral::whereBetween('referral_date', ['2023-10-01', '2023-10-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_oct = Referral::whereBetween('referral_date', ['2023-10-01', '2023-10-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $nov = Referral::whereBetween('referral_date', ['2023-11-01', '2023-11-30'])
                         ->where('facility', '=', $facility_id)->count();
@@ -62,11 +62,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_nov = Referral::whereBetween('referral_date', ['2023-11-01', '2023-11-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_nov = Referral::whereBetween('referral_date', ['2023-11-01', '2023-11-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $dec = Referral::whereBetween('referral_date', ['2023-12-01', '2023-12-31'])
                         ->where('facility', '=', $facility_id)->count();
@@ -76,11 +76,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_dec = Referral::whereBetween('referral_date', ['2023-12-01', '2023-12-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_dec = Referral::whereBetween('referral_date', ['2023-12-01', '2023-12-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $jan = Referral::whereBetween('referral_date', ['2024-01-01', '2024-01-31'])
                         ->where('facility', '=', $facility_id)->count();
@@ -90,11 +90,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_jan = Referral::whereBetween('referral_date', ['2024-01-01', '2024-01-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_jan = Referral::whereBetween('referral_date', ['2024-01-01', '2024-01-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $feb = Referral::whereBetween('referral_date', ['2024-02-01', '2024-02-28'])
                           ->where('facility', '=', $facility_id)->count();
@@ -104,11 +104,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_feb = Referral::whereBetween('referral_date', ['2024-02-01', '2024-02-28'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_feb = Referral::whereBetween('referral_date', ['2024-02-01', '2024-02-28'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $mar = Referral::whereBetween('referral_date', ['2024-03-01', '2024-03-31'])
                         ->where('facility', '=', $facility_id)->count();
@@ -118,11 +118,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_mar = Referral::whereBetween('referral_date', ['2024-03-01', '2024-03-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_mar = Referral::whereBetween('referral_date', ['2024-03-01', '2024-03-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $apr = Referral::whereBetween('referral_date', ['2024-04-01', '2024-04-30'])
                         ->where('facility', '=', $facility_id)->count();
@@ -132,11 +132,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_apr = Referral::whereBetween('referral_date', ['2024-04-01', '2024-04-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_apr = Referral::whereBetween('referral_date', ['2024-04-01', '2024-04-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $may = Referral::whereBetween('referral_date', ['2024-05-01', '2024-05-31'])
                         ->where('facility', '=', $facility_id)->count();
@@ -146,11 +146,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_may = Referral::whereBetween('referral_date', ['2024-05-01', '2024-05-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_may = Referral::whereBetween('referral_date', ['2024-05-01', '2024-05-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $jun = Referral::whereBetween('referral_date', ['2024-06-01', '2024-06-30'])
                         ->where('facility', '=', $facility_id)->count();
@@ -160,11 +160,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_jun = Referral::whereBetween('referral_date', ['2024-06-01', '2024-06-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_jun = Referral::whereBetween('referral_date', ['2024-06-01', '2024-06-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $jul = Referral::whereBetween('referral_date', ['2024-07-01', '2024-07-31'])
                         ->where('facility', '=', $facility_id)->count();
@@ -174,11 +174,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_jul = Referral::whereBetween('referral_date', ['2024-07-01', '2024-07-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_jul = Referral::whereBetween('referral_date', ['2024-07-01', '2024-07-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $aug = Referral::whereBetween('referral_date', ['2024-08-01', '2024-08-31'])
                         ->where('facility', '=', $facility_id)->count();
@@ -188,11 +188,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_aug = Referral::whereBetween('referral_date', ['2024-08-01', '2024-08-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_aug = Referral::whereBetween('referral_date', ['2024-08-01', '2024-08-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $sep = Referral::whereBetween('referral_date', ['2024-09-01', '2024-09-30'])
                         ->where('facility', '=', $facility_id)->count();
@@ -202,11 +202,11 @@ class HomeController extends Controller
                         ->where('facility', '=', $facility_id)->count();
       $partialoutcome_sep = Referral::whereBetween('referral_date', ['2024-09-01', '2024-09-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('followup_outcome', '<>', Null)->whereNull('histology_result')
+                        ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
       $fulloutcome_sep = Referral::whereBetween('referral_date', ['2024-09-01', '2024-09-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
-                        ->where('histology_result', '<>', Null)
+                        ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
       $initial = Referral::whereBetween('referral_date', ['2020-10-01', '2024-09-30'])
                         ->where('screening_type', 'Initial Screening')

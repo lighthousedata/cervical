@@ -115,8 +115,7 @@ class ReportController extends Controller
                 'Content-Disposition' => 'attachment; filename="ReferralReport.csv"',
               ]);
 
-              return $response;
-             
+              return $response;             
     }
 
     public function index(Request $request)

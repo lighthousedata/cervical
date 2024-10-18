@@ -32,7 +32,7 @@
               <th>Follow-up Outcome</th>
               <th>Sample Type</th>
               <th>Histology Result</th>
-              <th>Treatment</th>
+              <th>Referral Outcome</th>
             </tr>
           </thead>
           <tbody>
@@ -45,7 +45,7 @@
              <td>{{$filters->followup_outcome}}</td>
              <td>{{$filters->sample_type}}</td>
              <td>{{$filters->histology_result}}</td>
-             <td>{{$filters->treatment_provided}}</td>
+             <td>{{$filters->referral_outcome}}</td>
           </tr>
            @endforeach
           </tbody>

@@ -101,6 +101,8 @@
               </select>
               <label class="col-form-label text-md-right" style="margin-left: 9%">{{ __('Feedback') }}</label>
               <input id="feedback" class="text-box" name="feedback" style="width:18%; margin-left: 8.5%" value="{{ old('feedback') }}">
+              <label class="col-form-label text-md-right" style="margin-left: 9%">{{ __('Referral Outcome') }}</label>
+              <input id="referraloutcome" class="text-box" name="referraloutcome" style="width:18%; margin-left: 8.5%" value="{{ old('referraloutcome') }}">
             </div>
             </div>
             <hr>

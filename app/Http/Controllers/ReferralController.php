@@ -150,7 +150,7 @@ public function filterclients(Request $request)
 
       $find = Input::get('query');
       $referral = Referral::where('referrals.clientnumber', 'LIKE', $find)                        
-                        ->Join('outcomes', 'outcomes.referralid', 'referrals.id')->get()->take(2);
+                        ->Join('outcomes', 'outcomes.referralid', 'referrals.id')->get()->take(1);
 
       return view ('searchclient', ['this_facility'=>$this_facility])->withDetails($referral);
     }

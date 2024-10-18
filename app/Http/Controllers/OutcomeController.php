@@ -38,6 +38,7 @@ class OutcomeController extends Controller
       'treatment_provided' =>'',
       'recommended_plan' =>'',
       'feedback' =>'',
+      'referral_outcome'=>'',
     ];
 
     $customMessages = [
@@ -61,6 +62,7 @@ class OutcomeController extends Controller
     $outcome->treatment_provided = $request->treatment_provided;
     $outcome->recommended_plan = $request->recommended_plan;
     $outcome->feedback = $request->feedback;
+    $outcome->referral_outcome = $request->referral_outcome;
     $outcome->save();
 
     return redirect()->route('referraloutcome')->with('success','Referral Outcome Successfully Entered !');

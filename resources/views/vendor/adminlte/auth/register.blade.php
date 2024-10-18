@@ -57,11 +57,11 @@
         <div class="input-group mb-3">
             <select class="text-box" name="facility" value="{{ old('facility') }}" style="width: 100%">
                 <option value="">-- select facility name --</option>
-                <option value="{{ 'MPC' }}">{{ _('MPC') }}</option>
-                <option value="{{ 'Lighthouse' }}">{{ _('Lighthouse') }}</option>
-                <option value="{{ 'Rainbow' }}">{{ _('Rainbow') }}</option>
-                <option value="{{ 'UFC' }}">{{ _('UFC') }}</option>
-                <option value="{{ 'Tisungane' }}">{{ _('Tisungane') }}</option>
+                <option value="{{ '1' }}">{{ _('MPC') }}</option>
+                <option value="{{ '2' }}">{{ _('Lighthouse') }}</option>
+                <option value="{{ '3' }}">{{ _('Rainbow') }}</option>
+                <option value="{{ '4' }}">{{ _('UFC') }}</option>
+                <option value="{{ '5' }}">{{ _('Tisungane') }}</option>
             </select>            
 
             @error('facility')

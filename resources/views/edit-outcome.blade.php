@@ -27,12 +27,12 @@
             <form method="POST" action="/updateoutcome/{{$outcome->outcomeid}}">
                  {{csrf_field()}}
                  @method('PUT')
-            <div class="form-group" style="font-size: 12px">
-            <div class=form-group style="font-size: 12px; margin-left: 10%">
+            <div class="form-group" style="font-size: 15px">
+            <div class=form-group style="margin-left: 10%">
               <label class="col-form-label">{{ __('Client Number') }}</label>
-              <input id="clientnumber" class="text-box" name="clientnumber" style="width: 20%; margin-left: 5%" value="{{$outcome->clientnumber}}">
+              <input id="clientnumber" class="text-box" name="clientnumber" style="font-size: 15px; width: 20%; margin-left: 5%" value="{{$outcome->clientnumber}}">
               <label class="col-form-label" style="margin-left: 11%">{{ __('Assessment Outcome') }}</label>
-              <select class="text-box" name="assessment_outcome" style="width: 20%; margin-left:1.5%" value="{{ old('assessment_outcome') }}">
+              <select class="text-box" name="assessment_outcome" style="font-size: 15px; width: 20%; margin-left:1.5%" value="{{ old('assessment_outcome') }}">
               <option value="">-- Assessment Outcome --</option>
               <option {{ ($outcome->assessment_outcome =="Chronic Cervitis/STI") ? 'selected' : ''}}>Chronic Cervitis/STI</option>
               <option {{ ($outcome->assessment_outcome =="VIA Negative") ? 'selected' : ''}}>VIA Negative</option>
@@ -45,7 +45,7 @@
             </div>
             <div class=form-group>
             <label class="col-form-label" style="margin-left: 10%">{{ __('Followup Outcome') }}</label>
-              <select type="text" class="text-box" name="followup_outcome" style="width: 18%; margin-left: 2.5%; font-size: 12px" value="{{ $outcome->followup_outcome}}">
+              <select type="text" class="text-box" name="followup_outcome" style="font-size: 15px; width: 18%; margin-left: 2.5%; font-size: 12px" value="{{ $outcome->followup_outcome}}">
                           <option value="">-- Followup Outcome --</option>
                           <option {{ ($outcome->followup_outcome == "Consultation") ? 'selected' : ''}}>Booked for Consultation</option>
                           <option {{ ($outcome->followup_outcome == "Biopsy Booked") ? 'selected' : ''}}>Biopsy Booked</option>
@@ -64,7 +64,7 @@
                           <option {{ ($outcome->followup_outcome == "Died") ? 'selected' : ''}}>Died</option>
               </select>
               <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Sample Type') }}</label>
-              <select type="text" class="text-box" name="sample_type" style="width: 18%; margin-left: 5.6%; font-size: 12px" value="{{ $outcome->sample_type}}">
+              <select type="text" class="text-box" name="sample_type" style="font-size: 15px; width: 18%; margin-left: 5.6%; font-size: 12px" value="{{ $outcome->sample_type}}">
                           <option value="">-- Sample Type --</option>
                           <option {{ ($outcome->sample_type == "Punch Biopsy") ? 'selected' : ''}}>Punch Biopsy</option>
                           <option {{ ($outcome->sample_type == "LLETZ") ? 'selected' : '' }}>LLETZ Sample</option>
@@ -72,7 +72,7 @@
             </div>
             <div class=form-group>
             <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Histology Result') }}</label>
-              <select type="text" class="text-box" name="histology_result" style="width: 18%; margin-left: 4%; font-size: 12px" value="{{ $outcome->histology_result}}">
+              <select type="text" class="text-box" name="histology_result" style="font-size: 15px; width: 18%; margin-left: 4%; font-size: 12px" value="{{ $outcome->histology_result}}">
                           <option value="">-- Histology Result --</option>
                           <option {{ ($outcome->histology_result =="Normal") ? 'selected' : '' }}>Normal</option>
                           <option {{ ($outcome->histology_result =="CIN I") ? 'selected' : '' }}>CIN I</option>
@@ -82,7 +82,7 @@
                           <option {{ ($outcome->histology_result =="Invasive Cancer") ? 'selected' : '' }}>Invasive Cancer</option>
               </select>
               <label class="col-form-label" style="margin-left: 10%">{{ __('Treatment Provided') }}</label>
-              <select type="text" class="text-box" name="treatment_provided" style="width: 18%; margin-left: 2%; font-size: 12px" value="{{ $outcome->treatment_provided}}">
+              <select type="text" class="text-box" name="treatment_provided" style="font-size: 15px; width: 18%; margin-left: 2%; font-size: 12px" value="{{ $outcome->treatment_provided}}">
                           <option value="">-- Treatment Provided --</option>
                           <option {{ ($outcome->treatment_provided =="LLETZ/LEEP") ? 'selected' : '' }}>LLETZ/LEEP</option>
                           <option {{ ($outcome->treatment_provided =="Hysterectomy") ? 'selected' : '' }}>Hysterectomy</option>
@@ -93,8 +93,8 @@
               </select>                            
             </div>
             <div class=form-group>
-            <label class="col-form-label" style="margin-left: 10%">{{ __('Recommended Plan') }}</label>
-              <select type="text" class="text-box" name="recommended_plan" style="width: 18%; margin-left: 2.2%; font-size: 12px" value="{{ $outcome->recommended_plan}}">
+              <label class="col-form-label" style="margin-left: 10%">{{ __('Recommended Plan') }}</label>
+              <select type="text" class="text-box" name="recommended_plan" style="font-size: 15px; width: 18%; margin-left: 2.2%; font-size: 12px" value="{{ $outcome->recommended_plan}}">
                           <option value="">-- Recommended Plan --</option>
                           <option {{ ($outcome->recommended_plan =="Hysterectomy") ? 'selected' : ''}}>Hysterectomy</option>
                           <option {{ ($outcome->recommended_plan =="Trachelectomy") ? 'selected' : ''}}>Trachelectomy</option>
@@ -103,7 +103,14 @@
                           <option {{ ($outcome->recommended_plan =="Follow-up") ? 'selected' : ''}}>Continue Follow-up</option>
               </select>
               <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Feedback') }}</label>
-              <input id="feedback" class="text-box" name="feedback" style="width:18%; margin-left: 7.4%" value="{{$outcome->feedback}}">
+              <input id="feedback" class="text-box" name="feedback" style="font-size: 15px; width:18%; margin-left: 7.4%" value="{{$outcome->feedback}}">
+            </div>
+            <div>  
+              <label class="col-form-label text-md-right" style="margin-left: 10%">{{ __('Referral Outcome') }}</label>             
+              <select type="text" class="text-box" name="referral_outcome" style="font-size: 15px; width: 18%; margin-left: 3%; font-size: 12px" value="{{ $outcome->referral_outcome}}">
+                          <option value="">-- Referral Outcome --</option>
+                          <option {{ ($outcome->referral_outcome =="Complete Feedback") ? 'selected' : ''}}>Complete Feedback</option>                          
+              </select>
             </div>
             </div>
             <hr>
