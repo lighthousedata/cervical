@@ -40,187 +40,187 @@ class HomeController extends Controller
 
     $this_facility = $facilities[$facility_id];
 
-      $oct = Referral::whereBetween('referral_date', ['2023-10-01', '2023-10-31'])
+      $oct = Referral::whereBetween('referral_date', ['2024-10-01', '2024-10-31'])
                        ->where('facility', '=', $facility_id)->count();
-      $nooutcome_oct = Referral::whereBetween('referral_date', ['2023-10-01', '2023-10-31'])
+      $nooutcome_oct = Referral::whereBetween('referral_date', ['2024-10-01', '2024-10-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_oct = Referral::whereBetween('referral_date', ['2023-10-01', '2023-10-31'])
+      $partialoutcome_oct = Referral::whereBetween('referral_date', ['2024-10-01', '2024-10-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_oct = Referral::whereBetween('referral_date', ['2023-10-01', '2023-10-31'])
+      $fulloutcome_oct = Referral::whereBetween('referral_date', ['2024-10-01', '2024-10-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $nov = Referral::whereBetween('referral_date', ['2023-11-01', '2023-11-30'])
+      $nov = Referral::whereBetween('referral_date', ['2024-11-01', '2024-11-30'])
                         ->where('facility', '=', $facility_id)->count();
-      $nooutcome_nov = Referral::whereBetween('referral_date', ['2023-11-01', '2023-11-30'])
+      $nooutcome_nov = Referral::whereBetween('referral_date', ['2024-11-01', '2024-11-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_nov = Referral::whereBetween('referral_date', ['2023-11-01', '2023-11-30'])
+      $partialoutcome_nov = Referral::whereBetween('referral_date', ['2024-11-01', '2024-11-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_nov = Referral::whereBetween('referral_date', ['2023-11-01', '2023-11-30'])
+      $fulloutcome_nov = Referral::whereBetween('referral_date', ['2024-11-01', '2024-11-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $dec = Referral::whereBetween('referral_date', ['2023-12-01', '2023-12-31'])
+      $dec = Referral::whereBetween('referral_date', ['2024-12-01', '2024-12-31'])
                         ->where('facility', '=', $facility_id)->count();
-      $nooutcome_dec = Referral::whereBetween('referral_date', ['2023-12-01', '2023-12-31'])
+      $nooutcome_dec = Referral::whereBetween('referral_date', ['2024-12-01', '2024-12-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_dec = Referral::whereBetween('referral_date', ['2023-12-01', '2023-12-31'])
+      $partialoutcome_dec = Referral::whereBetween('referral_date', ['2024-12-01', '2024-12-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_dec = Referral::whereBetween('referral_date', ['2023-12-01', '2023-12-31'])
+      $fulloutcome_dec = Referral::whereBetween('referral_date', ['2024-12-01', '2024-12-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $jan = Referral::whereBetween('referral_date', ['2024-01-01', '2024-01-31'])
+      $jan = Referral::whereBetween('referral_date', ['2025-01-01', '2025-01-31'])
                         ->where('facility', '=', $facility_id)->count();
-      $nooutcome_jan = Referral::whereBetween('referral_date', ['2024-01-01', '2024-01-31'])
+      $nooutcome_jan = Referral::whereBetween('referral_date', ['2025-01-01', '2025-01-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_jan = Referral::whereBetween('referral_date', ['2024-01-01', '2024-01-31'])
+      $partialoutcome_jan = Referral::whereBetween('referral_date', ['2025-01-01', '2025-01-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_jan = Referral::whereBetween('referral_date', ['2024-01-01', '2024-01-31'])
+      $fulloutcome_jan = Referral::whereBetween('referral_date', ['2025-01-01', '2025-01-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $feb = Referral::whereBetween('referral_date', ['2024-02-01', '2024-02-28'])
+      $feb = Referral::whereBetween('referral_date', ['2025-02-01', '2025-02-28'])
                           ->where('facility', '=', $facility_id)->count();
-      $nooutcome_feb = Referral::whereBetween('referral_date', ['2024-02-01', '2024-02-28'])
+      $nooutcome_feb = Referral::whereBetween('referral_date', ['2025-02-01', '2025-02-28'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_feb = Referral::whereBetween('referral_date', ['2024-02-01', '2024-02-28'])
+      $partialoutcome_feb = Referral::whereBetween('referral_date', ['2025-02-01', '2025-02-28'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_feb = Referral::whereBetween('referral_date', ['2024-02-01', '2024-02-28'])
+      $fulloutcome_feb = Referral::whereBetween('referral_date', ['2025-02-01', '2025-02-28'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $mar = Referral::whereBetween('referral_date', ['2024-03-01', '2024-03-31'])
+      $mar = Referral::whereBetween('referral_date', ['2025-03-01', '2025-03-31'])
                         ->where('facility', '=', $facility_id)->count();
-      $nooutcome_mar = Referral::whereBetween('referral_date', ['2024-03-01', '2024-03-31'])
+      $nooutcome_mar = Referral::whereBetween('referral_date', ['2025-03-01', '2025-03-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_mar = Referral::whereBetween('referral_date', ['2024-03-01', '2024-03-31'])
+      $partialoutcome_mar = Referral::whereBetween('referral_date', ['2025-03-01', '2025-03-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_mar = Referral::whereBetween('referral_date', ['2024-03-01', '2024-03-31'])
+      $fulloutcome_mar = Referral::whereBetween('referral_date', ['2025-03-01', '2025-03-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $apr = Referral::whereBetween('referral_date', ['2024-04-01', '2024-04-30'])
+      $apr = Referral::whereBetween('referral_date', ['2025-04-01', '2025-04-30'])
                         ->where('facility', '=', $facility_id)->count();
-      $nooutcome_apr = Referral::whereBetween('referral_date', ['2024-04-01', '2024-04-30'])
+      $nooutcome_apr = Referral::whereBetween('referral_date', ['2025-04-01', '2025-04-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_apr = Referral::whereBetween('referral_date', ['2024-04-01', '2024-04-30'])
+      $partialoutcome_apr = Referral::whereBetween('referral_date', ['2025-04-01', '2025-04-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_apr = Referral::whereBetween('referral_date', ['2024-04-01', '2024-04-30'])
+      $fulloutcome_apr = Referral::whereBetween('referral_date', ['2025-04-01', '2025-04-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $may = Referral::whereBetween('referral_date', ['2024-05-01', '2024-05-31'])
+      $may = Referral::whereBetween('referral_date', ['2025-05-01', '2025-05-31'])
                         ->where('facility', '=', $facility_id)->count();
-      $nooutcome_may = Referral::whereBetween('referral_date', ['2024-05-01', '2024-05-31'])
+      $nooutcome_may = Referral::whereBetween('referral_date', ['2025-05-01', '2025-05-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_may = Referral::whereBetween('referral_date', ['2024-05-01', '2024-05-31'])
+      $partialoutcome_may = Referral::whereBetween('referral_date', ['2025-05-01', '2025-05-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_may = Referral::whereBetween('referral_date', ['2024-05-01', '2024-05-31'])
+      $fulloutcome_may = Referral::whereBetween('referral_date', ['2025-05-01', '2025-05-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $jun = Referral::whereBetween('referral_date', ['2024-06-01', '2024-06-30'])
+      $jun = Referral::whereBetween('referral_date', ['2025-06-01', '2025-06-30'])
                         ->where('facility', '=', $facility_id)->count();
-      $nooutcome_jun = Referral::whereBetween('referral_date', ['2024-06-01', '2024-06-30'])
+      $nooutcome_jun = Referral::whereBetween('referral_date', ['2025-06-01', '2025-06-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_jun = Referral::whereBetween('referral_date', ['2024-06-01', '2024-06-30'])
+      $partialoutcome_jun = Referral::whereBetween('referral_date', ['2025-06-01', '2025-06-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_jun = Referral::whereBetween('referral_date', ['2024-06-01', '2024-06-30'])
+      $fulloutcome_jun = Referral::whereBetween('referral_date', ['2025-06-01', '2025-06-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $jul = Referral::whereBetween('referral_date', ['2024-07-01', '2024-07-31'])
+      $jul = Referral::whereBetween('referral_date', ['2025-07-01', '2025-07-31'])
                         ->where('facility', '=', $facility_id)->count();
-      $nooutcome_jul = Referral::whereBetween('referral_date', ['2024-07-01', '2024-07-31'])
+      $nooutcome_jul = Referral::whereBetween('referral_date', ['2025-07-01', '2025-07-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_jul = Referral::whereBetween('referral_date', ['2024-07-01', '2024-07-31'])
+      $partialoutcome_jul = Referral::whereBetween('referral_date', ['2025-07-01', '2025-07-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_jul = Referral::whereBetween('referral_date', ['2024-07-01', '2024-07-31'])
+      $fulloutcome_jul = Referral::whereBetween('referral_date', ['2025-07-01', '2025-07-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $aug = Referral::whereBetween('referral_date', ['2024-08-01', '2024-08-31'])
+      $aug = Referral::whereBetween('referral_date', ['2025-08-01', '2025-08-31'])
                         ->where('facility', '=', $facility_id)->count();
-      $nooutcome_aug = Referral::whereBetween('referral_date', ['2024-08-01', '2024-08-31'])
+      $nooutcome_aug = Referral::whereBetween('referral_date', ['2025-08-01', '2025-08-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_aug = Referral::whereBetween('referral_date', ['2024-08-01', '2024-08-31'])
+      $partialoutcome_aug = Referral::whereBetween('referral_date', ['2025-08-01', '2025-08-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_aug = Referral::whereBetween('referral_date', ['2024-08-01', '2024-08-31'])
+      $fulloutcome_aug = Referral::whereBetween('referral_date', ['2025-08-01', '2025-08-31'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $sep = Referral::whereBetween('referral_date', ['2024-09-01', '2024-09-30'])
+      $sep = Referral::whereBetween('referral_date', ['2025-09-01', '2025-09-30'])
                         ->where('facility', '=', $facility_id)->count();
-      $nooutcome_sep = Referral::whereBetween('referral_date', ['2024-09-01', '2024-09-30'])
+      $nooutcome_sep = Referral::whereBetween('referral_date', ['2025-09-01', '2025-09-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->whereNull('followup_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $partialoutcome_sep = Referral::whereBetween('referral_date', ['2024-09-01', '2024-09-30'])
+      $partialoutcome_sep = Referral::whereBetween('referral_date', ['2025-09-01', '2025-09-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('followup_outcome', '<>', Null)->whereNull('referral_outcome')
                         ->where('facility', '=', $facility_id)->count();
-      $fulloutcome_sep = Referral::whereBetween('referral_date', ['2024-09-01', '2024-09-30'])
+      $fulloutcome_sep = Referral::whereBetween('referral_date', ['2025-09-01', '2025-09-30'])
                         ->join('outcomes', 'outcomes.referralid', 'referrals.id')
                         ->where('referral_outcome', '<>', Null)
                         ->where('facility', '=', $facility_id)->count();
-      $initial = Referral::whereBetween('referral_date', ['2020-10-01', '2024-09-30'])
+      $initial = Referral::whereBetween('referral_date', ['2020-10-01', '2025-09-30'])
                         ->where('screening_type', 'Initial Screening')
                         ->where('facility', '=', $facility_id)->count();
-      $subsequent = Referral::whereBetween('referral_date', ['2020-10-01', '2024-09-30'])
+      $subsequent = Referral::whereBetween('referral_date', ['2020-10-01', '2025-09-30'])
                         ->where('screening_type', 'Subsequent')
                         ->where('facility', '=', $facility_id)->count();
-      $post_tx = Referral::whereBetween('referral_date', ['2020-10-01', '2024-09-30'])
+      $post_tx = Referral::whereBetween('referral_date', ['2020-10-01', '2025-09-30'])
                         ->where('screening_type', 'Post Treatment')
                         ->where('facility', '=', $facility_id)->count();
-      $largelesion = Referral::whereBetween('referral_date', ['2020-10-01', '2024-09-30'])
+      $largelesion = Referral::whereBetween('referral_date', ['2020-10-01', '2025-09-30'])
                         ->where('referral_reason', 'Lesion >75%')
                         ->where('facility', '=', $facility_id)->count();
-      $CAsuspect = Referral::whereBetween('referral_date', ['2020-10-01', '2024-09-30'])
+      $CAsuspect = Referral::whereBetween('referral_date', ['2020-10-01', '2025-09-30'])
                         ->where('referral_reason', 'CA Suspect')
                         ->where('facility', '=', $facility_id)->count();
       $othergynae = Referral::where('referral_reason', 'Other Gynae')
