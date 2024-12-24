@@ -43,6 +43,16 @@
               <option {{ ($outcome->assessment_outcome =="CA Suspect") ? 'selected' : '' }}>Suspected Cancer</option>
               </select>               
             </div>
+            <div class="form-group" style="font-size: 12px">
+                   <div class="input-group date form-group col-xs-5" id="followup_outcome_date" style="margin-left: 10%">
+                     <label class="col-form-label" style="font-size: 15px">{{ __('Followup Outcome Date') }}</label>
+                     <input id="followup_outcome_date" class="text-box" name="followup_outcome_date" style="width: 20%; margin-left: 10%" value="{{ $outcome->followup_outcome_date}}">
+                     <span class="input-group-addon" style="width:10%">
+                         <span class="glyphicon glyphicon-calendar">
+                         </span>
+                     </span>
+                   </div>
+                   </div>
             <div class=form-group>
             <label class="col-form-label" style="margin-left: 10%">{{ __('Followup Outcome') }}</label>
               <select type="text" class="text-box" name="followup_outcome" style="font-size: 15px; width: 18%; margin-left: 2.5%; font-size: 12px" value="{{ $outcome->followup_outcome}}">
@@ -132,3 +142,19 @@
   </div>
 </div>
 @endsection
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/js/adminlte.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript">
+          $(document).ready(function() {
+          $('#referral_date').datepicker({
+          format: "yyyy-mm-dd",
+                autoclose: true,
+                changeMonth: true,
+                changeYear: true
+              });
+  });
+</script>
