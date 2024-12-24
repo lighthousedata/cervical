@@ -40,6 +40,16 @@
               <option value="{{ 'CA Suspect' }}">{{ _('Suspected Cancer') }}</option>
               </select>
             </div>
+            <div class="form-group" style="font-size: 12px">
+                   <div class="input-group date form-group col-xs-5" id="referral_date" style="margin-left: 10%">
+                     <label class="col-form-label" style="font-size: 15px">{{ __('Referral Date') }}</label>
+                     <input id="referral_date" class="text-box" name="referral_date" style="width: 48%; margin-left: 13.6%" value="{{ old('referral_date') }}">
+                     <span class="input-group-addon" style="width:10%">
+                         <span class="glyphicon glyphicon-calendar">
+                         </span>
+                     </span>
+                   </div>
+                   </div>
             <div class=form-group>
               <label class="col-form-label" style="margin-left: 10%">{{ __('Followup Outcome') }}</label>
               <select class="text-box" name="followup_outcome" style="width: 18%; margin-left: 2.3%; font-size: 15px" value="{{ old('followup_outcome') }}">

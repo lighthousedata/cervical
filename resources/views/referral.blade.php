@@ -99,27 +99,23 @@
               <option value="{{ '4' }}">{{ _('UFC') }}</option>
               <option value="{{ '5' }}">{{ _('Tisungane') }}</option>
               </select>
-            </div>           
-            
-        <hr>
-              <div>
-              <div class="form-group row mb-2">
-                <div class="col-md-8 offset-md-2">
-                    <button type="button" class="btn btn-primary float-left" onclick="location.href='{{ route('home') }}'" style="font-size:20px; width:12%">
-                        {{ __('Back') }}
-                    </button>
-                    <button type="submit" class="btn btn-success float-right" style="font-size:20px; width:12%">
-                        {{ __('Save') }}
-                    </button>
-              </div>
             </div>
+        <hr>
+            <div class="form-group row mb-2">
+            <div class="col-md-8 offset-md-2">
+              <button type="button" class="btn btn-primary float-left" onclick="location.href='{{ route('home') }}'" style="font-size:20px; width:12%">
+                {{ __('Back') }}
+              </button>
+              <button type="submit" class="btn btn-success float-right" style="font-size:20px; width:12%">
+                {{ __('Save') }}
+              </button>
+          </div>
           </div>
         </form>
       </div>
       </div>
     </div>
    </div>
-  </div>
 @stop
 @section('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2/dist/css/adminlte.min.css">
