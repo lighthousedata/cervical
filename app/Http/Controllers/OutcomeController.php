@@ -33,9 +33,12 @@ class OutcomeController extends Controller
       'clientnumber' =>'required', 
       'assessment_outcome' =>'',
       'followup_outcome' =>'',
+      'followup_outcome_date' =>'',
       'sample_type' =>'',
       'histology_result' =>'',
+      'histology_result_date' =>'',
       'treatment_provided' =>'',
+      'treatment_date' =>'',
       'recommended_plan' =>'',
       'feedback' =>'',
       'referral_outcome'=>'',
@@ -57,9 +60,12 @@ class OutcomeController extends Controller
     $outcome->clientnumber = $request->clientnumber;      
     $outcome->assessment_outcome=$request->assessment_outcome;
     $outcome->followup_outcome = $request->followup_outcome;
+    $outcome->followup_outcome_date = $request->followup_outcome_date;
     $outcome->sample_type = $request->sample_type;
     $outcome->histology_result = $request->histology_result;
+    $outcome->histology_result_date = $request->histology_result_date;
     $outcome->treatment_provided = $request->treatment_provided;
+    $outcome->treatment_date = $request->treatment_date;
     $outcome->recommended_plan = $request->recommended_plan;
     $outcome->feedback = $request->feedback;
     $outcome->referral_outcome = $request->referral_outcome;
