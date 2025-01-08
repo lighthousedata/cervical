@@ -19,11 +19,15 @@ class CreateOutcomesTable extends Migration
               $table->string('clientnumber');
               $table->string('assessment_outcome');
               $table->string('followup_outcome');
+              $table->string('followup_outcome_date');
               $table->string('sample_type');
               $table->string('histology_result');
+              $table->string('histology_result_date');
               $table->string('treatment_provided');
+              $table->string('treatment_date');
               $table->string('recommended_plan');
               $table->string('feedback');
+              $table->string('referral_outcome');
               $table->timestamps();
               $table->foreign('referralid')->references('id')->on('referrals')
                                       ->onUpdate('cascade')
