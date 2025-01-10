@@ -24,7 +24,8 @@ class CreateReferralsTable extends Migration
             $table->string('age_group');
             $table->string('screening_type');
             $table->string('hiv_status');
-            $table->string('referral_reason');            
+            $table->string('referral_reason');   
+            $table->string('created_by');          
             $table->timestamps();
         });
     }

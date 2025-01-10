@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Auth;
 
 class Outcome extends Model
 {
@@ -13,7 +14,7 @@ class Outcome extends Model
     protected $primaryKey = 'outcomeid';
 
     protected $fillable = [
-        'referralid', 'clientnumber', 'assessment_outcome', 'followup_outcome', 'followup_outcome_date', 'sample_type', 'histology_result', 'histology_result_date', 'treatment_provided', 'treatment_date', 'recommended_plan', 'feedback', 'referral_outcome'];
+        'referralid', 'clientnumber', 'assessment_outcome', 'followup_outcome', 'followup_outcome_date', 'sample_type', 'histology_result', 'histology_result_date', 'treatment_provided', 'treatment_date', 'recommended_plan', 'feedback', 'referral_outcome', 'created_by', 'updated_by'];
 
     public function referral()
     {

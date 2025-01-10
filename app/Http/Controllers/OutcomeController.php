@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Request as Input;
 use Illuminate\Support\Facades\Validator;
 use App\Models\Outcome;
 use App\Models\Client;
+use Auth;
 
 class OutcomeController extends Controller
 {
@@ -42,6 +43,8 @@ class OutcomeController extends Controller
       'recommended_plan' =>'',
       'feedback' =>'',
       'referral_outcome'=>'',
+      'created_by'=>'',     
+      'updated_by'=>'',      
     ];
 
     $customMessages = [
@@ -68,7 +71,7 @@ class OutcomeController extends Controller
     $outcome->treatment_date = $request->treatment_date;
     $outcome->recommended_plan = $request->recommended_plan;
     $outcome->feedback = $request->feedback;
-    $outcome->referral_outcome = $request->referral_outcome;
+    $outcome->referral_outcome = $request->referral_outcome;     
     $outcome->save();
 
     return redirect()->route('referraloutcome')->with('success','Referral Outcome Successfully Entered !');
@@ -78,7 +81,8 @@ class OutcomeController extends Controller
     {
       $outcome = Outcome::find($outcomeid);
       $input = $request->all();
-      $outcome->update($input);
+      $outcome->updated_by = Auth::user()->username; 
+      $outcome->update($input);       
 
       return redirect()->route('searchclient')->with('success','Referral Outcome Updated Successfully !');
     }

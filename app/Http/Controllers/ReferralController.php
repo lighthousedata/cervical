@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Referral;
 use App\Models\Outcome;
 use Illuminate\Support\Facades\Request as Input;
+use Auth;
 
 
 class ReferralController extends Controller
@@ -50,6 +51,7 @@ class ReferralController extends Controller
       'hiv_status'=>'required',
       'referral_reason'=>'required',
       'facility'=>'required',
+      'created_by'=>'',
     ]);
     $referral= new Referral();
     $referral->referral_date=$request->referral_date;
@@ -63,6 +65,7 @@ class ReferralController extends Controller
     $referral->hiv_status=$request->hiv_status;
     $referral->referral_reason=$request->referral_reason;
     $referral->facility=$request->facility;
+    $referral->created_by=Auth::user()->username;
     $referral->save();     
     $referral->id;                          
               
@@ -76,6 +79,7 @@ class ReferralController extends Controller
               $outcome->treatment_provided = $request->treatment_provided;
               $outcome->recommended_plan = $request->recommended_plan;
               $outcome->feedback = $request->feedback;
+              $outcome->created_by=Auth::user()->username;
               $referral->outcome()->save($outcome);
 
     return redirect()->route('referral')->with('success','Referral Client Successfully Entered !');

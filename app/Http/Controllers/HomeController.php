@@ -26,6 +26,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function role()
+    {
+      return view ('combinedhome');
+    }
+
     public function index()
     {
       $facility_id = auth()->user()->facility;

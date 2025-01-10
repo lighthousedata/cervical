@@ -46,6 +46,7 @@ Route::get('/searchoutcome', [App\Http\Controllers\OutcomeController::class, 'se
 Route::get('/register', [App\Http\Controllers\Auth\RegisterController::class, 'create'])->name('register');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/admin', [App\Http\Controllers\HomeController::class, 'role'])->name('admin');
 
 Auth::routes();
 
